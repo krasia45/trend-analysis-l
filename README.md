@@ -14,11 +14,11 @@
 ## 0. 먼저 답하는 세 가지 질문
 
 **Q1. 과제 요구사항 전부와 보너스 과제 전부를 만족하나요?**
-네. §8 체크리스트에 항목별로 정리했습니다. 필수 요구사항(데이터 100개 이상, 질문 3개
+네. §9 체크리스트에 항목별로 정리했습니다. 필수 요구사항(데이터 100개 이상, 질문 3개
 이상, 정제, 기법 2개 이상, 시각화 2개 이상, 인사이트 3개 이상, REPORT.md, 코드,
 재현성, AI 사용 로그) 전부와 보너스 두 가지(서비스화, 시계열 심화) 모두 충족합니다.
 GitHub 저장소만 예외인데, 이 저장소를 실제로 어느 계정에 올릴지는 제출자(당신)의
-선택이라 로컬 git 커밋까지만 준비해뒀습니다 (§9 참고).
+선택이라 로컬 git 커밋까지만 준비해뒀습니다 (§10 참고).
 
 **Q2. EventHub를 실제로 서비스 운영한다고 했을 때도 작동하나요?**
 **부분적으로 네, 그리고 그 격차를 메우는 작업까지 해뒀습니다.** 정직하게 말하면:
@@ -35,11 +35,13 @@ GitHub 저장소만 예외인데, 이 저장소를 실제로 어느 계정에 �
 
 **Q3. 더 고도화한 부분이 있나요?**
 네, 아래가 이번에 추가/개선한 것들입니다:
-1. (신규) 실서비스 전환 경로 — SQL 마이그레이션 + Supabase 어댑터 + self-test
-2. (개선) 대시보드를 완전히 오프라인 동작하게 변경 — Chart.js를 CDN이 아니라 파일에
-   직접 내장(vendoring), 템플릿/데이터 분리로 재생성 자동화
-3. (신규) 대시보드 3가지 필터 시나리오를 실제 헤드리스 브라우저로 렌더링한 스크린샷 증빙
-4. (신규) 이전 팀 프로젝트(`review_dashboard`, Project C)의 리뷰 감정분석 방식을 이번
+1. (신규) **데이터 폭 확장** — "1년간 운영했다면" 시나리오. 실제 160건은 그대로 두고,
+   그 이전 253일을 실제 데이터의 경험적 분포로 통계적 백필해 401건·365일로 확장 (§11)
+2. (신규) 실서비스 전환 경로 — SQL 마이그레이션 + Supabase 어댑터 + self-test (§5)
+3. (개선) 대시보드를 완전히 오프라인 동작하게 변경 — Chart.js를 CDN이 아니라 파일에
+   직접 내장(vendoring), 템플릿/데이터 분리로 재생성 자동화 (§4)
+4. (신규) 대시보드 3가지 필터 시나리오를 실제 헤드리스 브라우저로 렌더링한 스크린샷 증빙
+5. (신규) 이전 팀 프로젝트(`review_dashboard`, Project C)의 리뷰 감정분석 방식을 이번
    분석에 재사용 — 별점 기반 감정과 키워드 기반 감정을 이중 산출해 교차 검증
 
 ---
@@ -227,7 +229,88 @@ python3 scripts/build_dashboard.py --daily data/eventhub_platform_daily_REAL.csv
 
 ---
 
-## 6. 폴더 구조
+## 6. 데이터 폭 확장 — "1년간 운영했다면" 시나리오 (Q. 실제 데이터가 부족하다는 우려에 대한 답)
+
+### 6-1. 왜 필요했는가
+
+본문 분석(§1~5)은 실제 카탈로그 그대로인 **112일(160건)**에 근거한다. 정직하되,
+이 폭만으로는 두 가지가 아쉬웠다:
+- 월별 계절성을 볼 수 없다 (112일 = 약 3.7개월).
+- 카테고리당 표본이 20건뿐이라 트렌드 지표(REPORT.md §6 인사이트 2)가 관측 시점에
+  따라 크게 흔들린다.
+
+### 6-2. 접근 — "실제 데이터를 부풀리지 않고, 시간축으로만 확장한다"
+
+실제 160건을 단 1건도 수정하지 않고 그대로 보존한 채, **그 이전 253일
+(2025-08-21~2026-04-30)만** 실제 데이터의 경험적 분포로 통계적으로 백필했다.
+
+```
+┌───────────────────────────────┬─────────────────────────────────┐
+│ 2025-08-21 ~ 2026-04-30 (253일) │ 2026-05-01 ~ 2026-08-20 (112일)  │
+│ 백필 — 실제 160건에서 추정한      │ 실제 카탈로그 그대로 (160건,        │
+│ 경험적 분포로 시뮬레이션 생성       │ 100% 실측, 단 1건도 수정 안 함)     │
+└───────────────────────────────┴─────────────────────────────────┘
+```
+
+백필 이벤트의 카테고리별 할인율 분포·진행기간 분포·소상공인 비율·브랜드 풀은 전부
+실제 160건에서 부트스트랩 추정했다 (`scripts/simulate_extended_catalog.py`). 신규
+이벤트 유입률은 초기 0.5건/일 → 실제 구간 진입 시점 관측값(1.43건/일)까지 선형
+증가하도록 설계했다 — 초기 스타트업이 이벤트 소싱 파이프라인을 늘려온 성장 곡선이라는
+가정이며, **검증되지 않은 가정임을 명시**한다.
+
+결과: **401건 · 365일**로 확장 (원본 대비 데이터 폭 3.3배).
+
+![1년 전체 추이](images/extended/e01_full_year_trend.png)
+
+### 6-3. 이 확장으로 실제로 무엇이 좋아졌는가 — 가설을 검증해봤다
+
+REPORT.md §5-8에서 "신규 이벤트가 지속적으로 유입되면 예측이 더 안정적일 것"이라는
+가설을 세웠었다. 이번에 데이터가 생겼으니 실제로 테스트했다. 3-way로 공정하게
+비교해야 한다는 걸 검증 과정에서 깨달았다 — 단순히 ①(원본)과 ②(확장 전체)만
+비교하면 답이 안 나온다. 왜냐하면 백필은 **과거 방향으로만** 확장했기 때문에, 8월
+말단부의 "신규 이벤트가 끊기는" 문제 자체는 ②에도 그대로 남아있다. 그래서 ③(연속
+공급이 보장된 중간 구간)까지 추가해야 공정한 비교가 된다.
+
+![예측 가설 검증](images/extended/e03_forecast_comparison.png)
+
+| 구간 | MAPE |
+|---|---|
+| ① 원본(112일) 말단 | 86.4% |
+| ② 확장(365일) 말단 — 8월 공급단절 여전 | 89.9% |
+| ③ 확장(365일) 중간 — 연속 공급 보장 | **24.5%** |
+
+**결론**: "데이터가 많으면 예측이 좋아진다"가 아니라 **"공급이 끊기지 않는 구간에서만
+예측이 안정적이다"**가 정확한 결론이었다. 처음 세운 가설을 한 단계 더 정교하게
+다듬어준 검증이었다 — 이런 식으로 가설이 부분적으로만 맞고, 왜 그런지까지 밝혀내는
+것이 이 확장 작업에서 얻은 가장 큰 소득이다.
+
+### 6-4. 월별 추이 (이제 가능해진 것)
+
+![월별 조회수](images/extended/e02_monthly_views.png)
+
+### 6-5. 정직한 한계
+
+- 백필 구간은 **통계적 시뮬레이션**이다. 실측이 아니다.
+- 성장 곡선 가정(0.5→1.43건/일 선형 증가)은 검증되지 않았다.
+- 카테고리 트렌드 안정성 비교(원본 28일 창 vs 확장 90일 창)는 비교 구간 길이 자체가
+  달라서 "표본이 크면 안정된다"는 엄밀한 통제 실험이 아니다 — "작은 표본 스냅샷의
+  트렌드는 관측 시점에 따라 크게 흔들린다"는 정성적 근거로만 해석해야 한다
+  (`scripts/analyze_extended_scenario.py` 실행 로그 참고).
+- 결국 **가장 신뢰할 수 있는 데이터는 여전히 실제 160건·112일**이다. 확장 시나리오는
+  "데이터가 더 있었다면 어떤 분석이 가능해지는지"를 미리 보여주는 시뮬레이션이지,
+  실제 부족분을 진짜로 메운 것은 아니다 — 정직하게는 실서비스 오픈 후 §5의 경로로
+  실측 데이터를 쌓는 것이 유일한 근본 해법이다.
+
+전체 실행 순서:
+```bash
+python3 scripts/simulate_extended_catalog.py   # 확장 카탈로그 생성 (401건)
+python3 scripts/build_extended_scenario.py     # 관심도/리뷰 시뮬레이션 재실행 (365일)
+python3 scripts/analyze_extended_scenario.py   # 시각화 4종 + 가설 검증
+```
+
+---
+
+## 7. 폴더 구조
 
 ```
 eventhub-trend-analysis/
@@ -246,8 +329,13 @@ eventhub-trend-analysis/
 │   ├── eventhub_daily_timeseries.csv  ← 카탈로그 기반 일별 시계열 (활성/신규 이벤트 수 등)
 │   ├── eventhub_event_daily_engagement.csv  ← 이벤트×일 단위 시뮬레이션 조회수/좋아요
 │   ├── eventhub_reviews_simulated.csv ← 시뮬레이션 리뷰(별점/텍스트/감정)
-│   └── eventhub_platform_daily.csv    ← ★ 최종 분석 데이터셋 (112일 × 41개 지표)
+│   ├── eventhub_platform_daily.csv    ← ★ 최종 분석 데이터셋 (112일 × 41개 지표)
+│   ├── eventhub_events_extended.csv        ← [고도화] 확장 카탈로그 (401건, is_real 컬럼)
+│   ├── eventhub_event_daily_engagement_extended.csv
+│   ├── eventhub_reviews_extended.csv
+│   └── eventhub_platform_daily_extended.csv ← [고도화] 확장 최종 데이터셋 (365일)
 ├── images/                            ← 시각화 8종 (PNG)
+│   └── extended/                      ← [고도화] 1년 확장 시나리오 시각화 4종
 ├── docs/
 │   ├── DASHBOARD_SCREENSHOTS.md       ← 보너스: 대시보드 필터 시나리오 + 스크린샷
 │   └── screenshots/*.png              ← 헤드리스 브라우저로 촬영한 실제 작동 화면 3종
@@ -259,21 +347,24 @@ eventhub-trend-analysis/
     ├── make_notebook.py               (5) analysis.ipynb 생성
     ├── build_dashboard.py             (6) dashboard.html 조립 (템플릿 + 데이터)
     ├── fetch_real_data_from_supabase.py  [실서비스 전환용] 실측 데이터 어댑터
-    └── _vendor_chart.umd.js           Chart.js 번들 (build_dashboard.py가 내장용으로 사용)
+    ├── _vendor_chart.umd.js           Chart.js 번들 (build_dashboard.py가 내장용으로 사용)
+    ├── simulate_extended_catalog.py   [고도화] 1년 확장 카탈로그 생성 (§6)
+    ├── build_extended_scenario.py     [고도화] 확장 카탈로그 관심도/리뷰 시뮬레이션 재실행
+    └── analyze_extended_scenario.py   [고도화] 확장 시나리오 시각화 + 가설 검증
 ```
 
 ---
 
-## 7. 실행 방법
+## 8. 실행 방법
 
-### 7-1. 환경 설정
+### 8-1. 환경 설정
 ```bash
 python3 -m venv .venv && source .venv/bin/activate   # 선택 사항
 pip install -r requirements.txt
 sudo apt-get install -y fonts-nanum   # 한글 폰트 (matplotlib 한글 깨짐 방지)
 ```
 
-### 7-2. 전체 파이프라인 재현 (시뮬레이션 데이터 기준)
+### 8-2. 전체 파이프라인 재현 (시뮬레이션 데이터 기준)
 ```bash
 python3 scripts/build_timeseries.py
 python3 scripts/simulate_engagement_and_reviews.py
@@ -282,9 +373,14 @@ python3 scripts/analyze_and_visualize.py
 python3 scripts/make_notebook.py
 jupyter nbconvert --to notebook --execute --inplace analysis.ipynb
 python3 scripts/build_dashboard.py
+
+# [고도화] 1년 확장 시나리오 (§6) — 위 파이프라인 실행 후 추가로:
+python3 scripts/simulate_extended_catalog.py
+python3 scripts/build_extended_scenario.py
+python3 scripts/analyze_extended_scenario.py
 ```
 
-### 7-3. 결과 확인
+### 8-3. 결과 확인
 - `REPORT.md`를 열어 리포트를 읽는다 (이미지가 `images/`를 상대경로로 참조).
 - `analysis.ipynb`를 Jupyter로 열면 코드+실행 결과(차트 포함)를 바로 볼 수 있다.
 - `dashboard.html`을 브라우저로 더블클릭해서 열면 완전 오프라인으로 바로 작동한다.
@@ -294,7 +390,7 @@ python3 scripts/build_dashboard.py
 
 ---
 
-## 8. 과제 요구사항 체크리스트
+## 9. 과제 요구사항 체크리스트
 
 | 요구사항 | 충족 여부 |
 |---|---|
@@ -307,16 +403,17 @@ python3 scripts/build_dashboard.py
 | 인사이트 3개 이상(관찰 근거 포함) | ✅ 5개 |
 | REPORT.md (주제/질문/데이터/시각화/인사이트/결론) | ✅ |
 | Python 코드 (노트북 또는 스크립트) | ✅ `analysis.ipynb` + `scripts/*.py` 8개 |
-| GitHub 저장소 | 🟡 로컬 git 커밋 완료, push는 제출자 계정 필요 (§9) |
-| 재현성(requirements/실행방법) | ✅ §7 |
+| GitHub 저장소 | 🟡 로컬 git 커밋 완료, push는 제출자 계정 필요 (§10) |
+| 재현성(requirements/실행방법) | ✅ §8 |
 | AI 사용 투명성 로그 | ✅ REPORT.md §8 |
 | [보너스] 서비스화(대시보드) | ✅ `dashboard.html` + 스크린샷 3종 |
 | [보너스] 시계열 심화(분해/예측) | ✅ REPORT.md §5-7, §5-8 |
 | (추가 고도화) 실서비스 전환 경로 | ✅ SQL 마이그레이션 + 어댑터 + self-test |
+| (추가 고도화) 데이터 폭 확장(1년 시나리오) | ✅ §6, REPORT.md 부록 E — 가설 검증 포함 |
 
 ---
 
-## 9. GitHub 저장소로 올리기
+## 10. GitHub 저장소로 올리기
 
 이 폴더는 이미 `git init` + 커밋이 되어 있습니다. 본인 GitHub 계정에 새 저장소를 만든 뒤
 연결해서 push 하세요.
@@ -333,7 +430,7 @@ git push -u origin main
 
 ---
 
-## 10. 정직한 한계 (다시 한 번 요약)
+## 11. 정직한 한계 (다시 한 번 요약)
 
 - 조회수·좋아요·리뷰는 **시뮬레이션**입니다. §3의 가정은 합리적으로 설계했지만 실측이
   아닙니다 — 절대 수치가 아니라 **패턴**을 참고 자료로 봐주세요.

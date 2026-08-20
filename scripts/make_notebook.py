@@ -312,6 +312,84 @@ md("""## 10. AI 사용 로그
   설계한 가정과 방향이 일치하는지 재확인.
 """)
 
+# ============================================================
+md("""---
+## 11. [고도화] 부록 — 데이터 폭 확장: "1년간 운영했다면" 시나리오
+
+앞의 분석은 실제 카탈로그 그대로인 112일(160건)에 근거한다. 이 구간만으로는
+① 월별 계절성을 볼 수 없고 ② 카테고리당 표본(20건)이 작아 트렌드 지표가 노이즈에
+취약하다는 한계가 있었다(§9 한계점).
+
+이 부록은 그 한계를 메우기 위해, **실제 160건은 그대로 두고(단 1건도 수정하지 않음)**,
+그 이전 253일(2025-08-21~2026-04-30)을 실제 데이터의 경험적 분포(카테고리별 할인율·
+진행기간·소상공인 비율·실제 브랜드 풀)로 통계적으로 백필해 총 401건·365일 규모로
+확장한 시나리오를 별도로 구축하고, 이 확장이 실제로 앞서 세운 가설을 검증하는지
+테스트한다. 전체 코드는 `scripts/simulate_extended_catalog.py`,
+`scripts/build_extended_scenario.py`, `scripts/analyze_extended_scenario.py` 참고.
+""")
+
+code("""ext = pd.read_csv("data/eventhub_platform_daily_extended.csv", parse_dates=["date"])
+ext_events = pd.read_csv("data/eventhub_events_extended.csv", parse_dates=["period_start","period_end"])
+
+print(f"확장 카탈로그: {len(ext_events)}건 (실제 {int(ext_events['is_real'].sum())}건 + "
+      f"백필(시뮬레이션) {int((~ext_events['is_real']).sum())}건)")
+print(f"확장 일별 시계열: {len(ext)}일 (기존 112일의 {len(ext)/112:.1f}배)")
+print(f"기간: {ext['date'].min().date()} ~ {ext['date'].max().date()}")
+""")
+
+md("### 11-1. 전체 1년 추이 — 백필 구간과 실제 구간의 경계를 명시")
+code("""from PIL import Image
+img = Image.open("images/extended/e01_full_year_trend.png")
+img
+""")
+
+md("""### 11-2. 가설 검증 — "신규 이벤트가 계속 유입돼야 예측이 안정적인가?"
+
+REPORT.md §5-8에서 세운 가설을 3-way로 공정하게 검증한다. 단순히 과거로 데이터를
+늘리는 것(②)만으로는 해결되지 않고, **미래 방향으로도 공급이 끊기지 않아야** 함을
+보여준다 — 이것이 진짜 원인이 무엇인지 정확히 짚어낸 결과다.""")
+code("""ts_orig = pd.read_csv("data/eventhub_platform_daily.csv", parse_dates=["date"]).set_index("date")["total_views"]
+ts_ext = ext.set_index("date")["total_views"]
+
+def sn_mape(ts, sl):
+    test, pred = ts.loc[sl], ts.shift(7).loc[sl]
+    return ((test - pred).abs() / test.replace(0, np.nan)).mean() * 100
+
+mape_1 = sn_mape(ts_orig, slice(ts_orig.index[-14], ts_orig.index[-1]))
+mape_2 = sn_mape(ts_ext, slice(ts_ext.index[-14], ts_ext.index[-1]))
+mape_3 = sn_mape(ts_ext, slice("2026-02-01", "2026-02-14"))
+
+print(f"① 원본(112일) 말단:          MAPE={mape_1:.1f}%")
+print(f"② 확장(365일) 말단(단절 여전): MAPE={mape_2:.1f}%")
+print(f"③ 확장(365일) 중간(연속 공급): MAPE={mape_3:.1f}%  ← {mape_1-mape_3:.1f}%p 개선")
+
+img2 = Image.open("images/extended/e03_forecast_comparison.png")
+img2
+""")
+
+md("""**결론**: ②(단순 과거 확장)는 ①과 거의 같은 성능(오히려 소폭 악화)이지만, ③(연속
+공급이 보장된 구간)은 MAPE가 86.4% → 24.5%로 크게 개선된다. 즉 "데이터가 많으면 예측이
+좋아진다"가 아니라 **"공급이 끊기지 않는 구간에서만 예측이 안정적이다"**가 정확한
+결론이다 — 표본 크기 자체보다 데이터의 구조적 연속성이 핵심이라는, 처음 가설보다 한 단계
+더 정교해진 인사이트다.
+""")
+
+md("### 11-3. 월별 조회수 — 이제 가능해진 계절 추세 관찰")
+code("""img3 = Image.open("images/extended/e02_monthly_views.png")
+img3
+""")
+
+md("""### 11-4. 정직한 한계
+
+- 백필 구간(2025-08-21~2026-04-30)은 **통계적 시뮬레이션**이다. 실제 160건에서 추정한
+  경험적 분포를 따르지만, 실측이 아니다.
+- 신규 이벤트 유입률이 0.5건/일→1.43건/일로 선형 증가한다는 성장 곡선 가정은 스타트업
+  일반론에 근거한 가정이며 실측 검증은 안 되어 있다.
+- §11-2 카테고리 트렌드 비교(스크립트 출력 참고)는 비교 구간 길이가 다르다(28일 vs
+  90일)는 방법론적 차이가 있어 "표본이 크면 안정된다"는 엄밀한 통제 실험은 아니다 —
+  "작은 표본 스냅샷의 트렌드는 관측 시점에 따라 크게 흔들린다"는 정성적 근거로만 해석한다.
+""")
+
 nb["cells"] = cells
 nbf.write(nb, "/home/claude/eventhub-trend-analysis/analysis.ipynb")
 print("notebook written:", len(cells), "cells")

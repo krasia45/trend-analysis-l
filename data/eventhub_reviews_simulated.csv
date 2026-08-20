@@ -1,0 +1,310 @@
+﻿review_id,event_id,brand,category,category_ko,merchant_type,review_date,rating,review_text,rating_sentiment,text_sentiment
+r0001,e001,ZARA,fashion,패션,브랜드,2026-05-07,4,이 정도 할인이면 무조건 가야죠. 강력 추천합니다!,positive,positive
+r0002,e001,ZARA,fashion,패션,브랜드,2026-05-16,5,기대했던 것보다 별로였어요. 옷 아쉬웠습니다.,positive,negative
+r0003,e002,Nike,fashion,패션,소상공인,2026-05-28,4,이 정도 할인이면 무조건 가야죠. 강력 추천합니다!,positive,positive
+r0004,e004,H&M,fashion,패션,브랜드,2026-06-06,4,가격 대비 퀄리티 최고예요. H&M 다음에도 또 이용할래요.,positive,positive
+r0005,e004,H&M,fashion,패션,브랜드,2026-05-16,4,"H&M 옷 진짜 만족스러웠어요, 50% OFF 받고 완전 이득!",positive,positive
+r0006,e004,H&M,fashion,패션,브랜드,2026-06-11,4,가격 대비 퀄리티 최고예요. H&M 다음에도 또 이용할래요.,positive,positive
+r0007,e004,H&M,fashion,패션,브랜드,2026-06-07,5,가격 대비 퀄리티 최고예요. H&M 다음에도 또 이용할래요.,positive,positive
+r0008,e004,H&M,fashion,패션,브랜드,2026-06-11,4,옷 상태도 좋고 직원분도 친절해서 기분 좋게 다녀왔습니다.,positive,positive
+r0009,e004,H&M,fashion,패션,브랜드,2026-05-24,4,"H&M 옷 진짜 만족스러웠어요, 50% OFF 받고 완전 이득!",positive,positive
+r0010,e004,H&M,fashion,패션,브랜드,2026-05-14,5,성수동에서 이런 이벤트 찾기 힘든데 완전 만족했어요.,positive,positive
+r0011,e004,H&M,fashion,패션,브랜드,2026-05-19,4,"H&M 옷 진짜 만족스러웠어요, 50% OFF 받고 완전 이득!",positive,positive
+r0012,e005,adidas,fashion,패션,브랜드,2026-05-22,5,이 정도 할인이면 무조건 가야죠. 강력 추천합니다!,positive,positive
+r0013,e007,Uniqlo,fashion,패션,브랜드,2026-05-28,5,옷 상태도 좋고 직원분도 친절해서 기분 좋게 다녀왔습니다.,positive,positive
+r0014,e008,8seconds,fashion,패션,브랜드,2026-06-04,3,8seconds 처음 이용해봤는데 보통이었어요.,neutral,neutral
+r0015,e008,8seconds,fashion,패션,브랜드,2026-06-20,4,"8seconds 옷 진짜 만족스러웠어요, 45% OFF 받고 완전 이득!",positive,positive
+r0016,e008,8seconds,fashion,패션,브랜드,2026-06-13,5,이 정도 할인이면 무조건 가야죠. 강력 추천합니다!,positive,positive
+r0017,e010,Levi's,fashion,패션,브랜드,2026-05-05,4,옷 상태도 좋고 직원분도 친절해서 기분 좋게 다녀왔습니다.,positive,positive
+r0018,e010,Levi's,fashion,패션,브랜드,2026-05-11,4,성수동에서 이런 이벤트 찾기 힘든데 완전 만족했어요.,positive,positive
+r0019,e010,Levi's,fashion,패션,브랜드,2026-05-11,5,성수동에서 이런 이벤트 찾기 힘든데 완전 만족했어요.,positive,positive
+r0020,e010,Levi's,fashion,패션,브랜드,2026-05-24,4,할인은 괜찮은데 대기줄이 좀 길었습니다.,positive,negative
+r0021,e010,Levi's,fashion,패션,브랜드,2026-05-21,4,"Levi's 옷 진짜 만족스러웠어요, 45% OFF 받고 완전 이득!",positive,positive
+r0022,e011,MAC,beauty,뷰티,브랜드,2026-05-12,5,제품 상태도 좋고 직원분도 친절해서 기분 좋게 다녀왔습니다.,positive,positive
+r0023,e011,MAC,beauty,뷰티,브랜드,2026-05-11,4,"MAC 제품 진짜 만족스러웠어요, 35% OFF 받고 완전 이득!",positive,positive
+r0024,e011,MAC,beauty,뷰티,브랜드,2026-05-15,5,가격 대비 퀄리티 최고예요. MAC 다음에도 또 이용할래요.,positive,positive
+r0025,e012,Innisfree,beauty,뷰티,브랜드,2026-05-22,5,"Innisfree 제품 진짜 만족스러웠어요, 20% OFF 받고 완전 이득!",positive,positive
+r0026,e013,Sulwhasoo,beauty,뷰티,브랜드,2026-05-18,4,가격 대비 퀄리티 최고예요. Sulwhasoo 다음에도 또 이용할래요.,positive,positive
+r0027,e013,Sulwhasoo,beauty,뷰티,브랜드,2026-05-20,4,"Sulwhasoo 제품 진짜 만족스러웠어요, 25% OFF 받고 완전 이득!",positive,positive
+r0028,e014,Etude,beauty,뷰티,브랜드,2026-05-22,4,제품 나쁘지 않은데 특별히 인상적이지도 않았어요.,positive,neutral
+r0029,e014,Etude,beauty,뷰티,브랜드,2026-06-13,5,제품 상태도 좋고 직원분도 친절해서 기분 좋게 다녀왔습니다.,positive,positive
+r0030,e014,Etude,beauty,뷰티,브랜드,2026-06-02,4,"Etude 제품 진짜 만족스러웠어요, 최대 60% OFF 받고 완전 이득!",positive,positive
+r0031,e014,Etude,beauty,뷰티,브랜드,2026-06-14,4,"Etude 제품 진짜 만족스러웠어요, 최대 60% OFF 받고 완전 이득!",positive,positive
+r0032,e014,Etude,beauty,뷰티,브랜드,2026-05-29,4,가격 대비 퀄리티 최고예요. Etude 다음에도 또 이용할래요.,positive,positive
+r0033,e014,Etude,beauty,뷰티,브랜드,2026-06-03,4,"Etude 제품 진짜 만족스러웠어요, 최대 60% OFF 받고 완전 이득!",positive,positive
+r0034,e015,The Face Shop,beauty,뷰티,브랜드,2026-06-01,4,이 정도 할인이면 무조건 가야죠. 강력 추천합니다!,positive,positive
+r0035,e016,Laneige,beauty,뷰티,소상공인,2026-05-29,3,제품 나쁘지 않은데 특별히 인상적이지도 않았어요.,neutral,neutral
+r0036,e017,Nature Republic,beauty,뷰티,브랜드,2026-05-23,4,"Nature Republic 제품 진짜 만족스러웠어요, 25% OFF 받고 완전 이득!",positive,positive
+r0037,e019,Clio,beauty,뷰티,브랜드,2026-05-30,5,"Clio 제품 진짜 만족스러웠어요, 30% OFF 받고 완전 이득!",positive,positive
+r0038,e019,Clio,beauty,뷰티,브랜드,2026-06-02,4,성수동에서 이런 이벤트 찾기 힘든데 완전 만족했어요.,positive,positive
+r0039,e020,Tonymoly,beauty,뷰티,브랜드,2026-05-15,4,성수동에서 이런 이벤트 찾기 힘든데 완전 만족했어요.,positive,positive
+r0040,e020,Tonymoly,beauty,뷰티,브랜드,2026-05-18,5,제품 상태도 좋고 직원분도 친절해서 기분 좋게 다녀왔습니다.,positive,positive
+r0041,e020,Tonymoly,beauty,뷰티,브랜드,2026-05-19,4,직원 응대가 다소 불친절했어요.,positive,neutral
+r0042,e021,Starbucks,food,푸드,브랜드,2026-05-19,5,음식 상태도 좋고 직원분도 친절해서 기분 좋게 다녀왔습니다.,positive,positive
+r0043,e021,Starbucks,food,푸드,브랜드,2026-05-24,5,"Starbucks 음식 진짜 만족스러웠어요, 최대 70% OFF 받고 완전 이득!",positive,positive
+r0044,e021,Starbucks,food,푸드,브랜드,2026-05-11,4,가격 대비 퀄리티 최고예요. Starbucks 다음에도 또 이용할래요.,positive,positive
+r0045,e021,Starbucks,food,푸드,브랜드,2026-05-21,5,이 정도 할인이면 무조건 가야죠. 강력 추천합니다!,positive,positive
+r0046,e021,Starbucks,food,푸드,브랜드,2026-05-15,4,성수동에서 이런 이벤트 찾기 힘든데 완전 만족했어요.,positive,positive
+r0047,e022,Baskin Robbins,food,푸드,브랜드,2026-05-23,4,음식 상태도 좋고 직원분도 친절해서 기분 좋게 다녀왔습니다.,positive,positive
+r0048,e022,Baskin Robbins,food,푸드,브랜드,2026-05-31,3,설명이랑 실제가 달라서 불편했습니다.,neutral,negative
+r0049,e022,Baskin Robbins,food,푸드,브랜드,2026-05-25,5,설명이랑 실제가 달라서 불편했습니다.,positive,negative
+r0050,e023,Paris Baguette,food,푸드,소상공인,2026-05-29,3,할인은 괜찮은데 대기줄이 좀 길었습니다.,neutral,negative
+r0051,e023,Paris Baguette,food,푸드,소상공인,2026-06-07,4,음식 상태도 좋고 직원분도 친절해서 기분 좋게 다녀왔습니다.,positive,positive
+r0052,e024,Tous les Jours,food,푸드,브랜드,2026-05-26,5,성수동에서 이런 이벤트 찾기 힘든데 완전 만족했어요.,positive,positive
+r0053,e024,Tous les Jours,food,푸드,브랜드,2026-05-27,4,성수동에서 이런 이벤트 찾기 힘든데 완전 만족했어요.,positive,positive
+r0054,e024,Tous les Jours,food,푸드,브랜드,2026-06-20,5,"Tous les Jours 음식 진짜 만족스러웠어요, 1+1 받고 완전 이득!",positive,positive
+r0055,e024,Tous les Jours,food,푸드,브랜드,2026-06-04,5,이 정도 할인이면 무조건 가야죠. 강력 추천합니다!,positive,positive
+r0056,e024,Tous les Jours,food,푸드,브랜드,2026-06-21,5,이 정도 할인이면 무조건 가야죠. 강력 추천합니다!,positive,positive
+r0057,e025,Ediya Coffee,food,푸드,브랜드,2026-06-06,4,"Ediya Coffee 음식 진짜 만족스러웠어요, 50% OFF 받고 완전 이득!",positive,positive
+r0058,e026,A Twosome Place,food,푸드,브랜드,2026-05-06,3,그냥 무난했어요. 재방문은 고민 중입니다.,neutral,neutral
+r0059,e026,A Twosome Place,food,푸드,브랜드,2026-05-19,4,가격 대비 퀄리티 최고예요. A Twosome Place 다음에도 또 이용할래요.,positive,positive
+r0060,e026,A Twosome Place,food,푸드,브랜드,2026-05-12,4,성수동에서 이런 이벤트 찾기 힘든데 완전 만족했어요.,positive,positive
+r0061,e027,BBQ Chicken,food,푸드,브랜드,2026-06-14,4,성수동에서 이런 이벤트 찾기 힘든데 완전 만족했어요.,positive,positive
+r0062,e027,BBQ Chicken,food,푸드,브랜드,2026-05-31,4,성수동에서 이런 이벤트 찾기 힘든데 완전 만족했어요.,positive,positive
+r0063,e027,BBQ Chicken,food,푸드,브랜드,2026-06-19,4,"BBQ Chicken 음식 진짜 만족스러웠어요, 1+1 받고 완전 이득!",positive,positive
+r0064,e027,BBQ Chicken,food,푸드,브랜드,2026-06-02,4,"BBQ Chicken 음식 진짜 만족스러웠어요, 1+1 받고 완전 이득!",positive,positive
+r0065,e028,Mega Coffee,food,푸드,브랜드,2026-05-26,5,기대했던 것보다 별로였어요. 음식 아쉬웠습니다.,positive,negative
+r0066,e028,Mega Coffee,food,푸드,브랜드,2026-06-01,5,이 정도 할인이면 무조건 가야죠. 강력 추천합니다!,positive,positive
+r0067,e028,Mega Coffee,food,푸드,브랜드,2026-05-28,4,설명이랑 실제가 달라서 불편했습니다.,positive,negative
+r0068,e028,Mega Coffee,food,푸드,브랜드,2026-05-22,4,가격 대비 퀄리티 최고예요. Mega Coffee 다음에도 또 이용할래요.,positive,positive
+r0069,e029,Compose Coffee,food,푸드,브랜드,2026-05-24,4,가격 대비 퀄리티 최고예요. Compose Coffee 다음에도 또 이용할래요.,positive,positive
+r0070,e032,Apple,tech,테크,브랜드,2026-05-29,5,성수동에서 이런 이벤트 찾기 힘든데 완전 만족했어요.,positive,positive
+r0071,e033,LG Electronics,tech,테크,브랜드,2026-06-11,4,"LG Electronics 제품 진짜 만족스러웠어요, 50% OFF 받고 완전 이득!",positive,positive
+r0072,e033,LG Electronics,tech,테크,브랜드,2026-06-08,4,제품 상태도 좋고 직원분도 친절해서 기분 좋게 다녀왔습니다.,positive,positive
+r0073,e033,LG Electronics,tech,테크,브랜드,2026-06-14,5,"LG Electronics 제품 진짜 만족스러웠어요, 50% OFF 받고 완전 이득!",positive,positive
+r0074,e033,LG Electronics,tech,테크,브랜드,2026-06-13,4,"LG Electronics 제품 진짜 만족스러웠어요, 50% OFF 받고 완전 이득!",positive,positive
+r0075,e034,Xiaomi,tech,테크,브랜드,2026-06-05,4,제품 상태도 좋고 직원분도 친절해서 기분 좋게 다녀왔습니다.,positive,positive
+r0076,e034,Xiaomi,tech,테크,브랜드,2026-06-15,5,"재고가 이미 없어서 할인 혜택을 못 받았어요, 실망.",positive,negative
+r0077,e034,Xiaomi,tech,테크,브랜드,2026-05-25,4,"재고가 이미 없어서 할인 혜택을 못 받았어요, 실망.",positive,negative
+r0078,e036,Dyson,tech,테크,브랜드,2026-06-03,3,성수동에서 이런 이벤트 찾기 힘든데 완전 만족했어요.,neutral,positive
+r0079,e037,Bose,tech,테크,소상공인,2026-06-16,3,할인은 괜찮은데 대기줄이 좀 길었습니다.,neutral,negative
+r0080,e037,Bose,tech,테크,소상공인,2026-06-13,4,이 정도 할인이면 무조건 가야죠. 강력 추천합니다!,positive,positive
+r0081,e037,Bose,tech,테크,소상공인,2026-06-14,4,가격 대비 퀄리티 최고예요. Bose 다음에도 또 이용할래요.,positive,positive
+r0082,e039,Logitech,tech,테크,브랜드,2026-05-09,5,성수동에서 이런 이벤트 찾기 힘든데 완전 만족했어요.,positive,positive
+r0083,e039,Logitech,tech,테크,브랜드,2026-05-05,4,성수동에서 이런 이벤트 찾기 힘든데 완전 만족했어요.,positive,positive
+r0084,e039,Logitech,tech,테크,브랜드,2026-05-16,4,성수동에서 이런 이벤트 찾기 힘든데 완전 만족했어요.,positive,positive
+r0085,e040,Anker,tech,테크,브랜드,2026-05-07,4,"Anker 제품 진짜 만족스러웠어요, 40% OFF 받고 완전 이득!",positive,positive
+r0086,e040,Anker,tech,테크,브랜드,2026-05-17,4,제품 상태도 좋고 직원분도 친절해서 기분 좋게 다녀왔습니다.,positive,positive
+r0087,e040,Anker,tech,테크,브랜드,2026-05-15,4,가격 대비 퀄리티 최고예요. Anker 다음에도 또 이용할래요.,positive,positive
+r0088,e041,배달의민족,delivery,딜리버리,브랜드,2026-05-20,4,"재고가 이미 없어서 할인 혜택을 못 받았어요, 실망.",positive,negative
+r0089,e041,배달의민족,delivery,딜리버리,브랜드,2026-05-18,4,그냥 무난했어요. 재방문은 고민 중입니다.,positive,neutral
+r0090,e041,배달의민족,delivery,딜리버리,브랜드,2026-05-14,4,이 정도 할인이면 무조건 가야죠. 강력 추천합니다!,positive,positive
+r0091,e042,요기요,delivery,딜리버리,브랜드,2026-05-14,4,가격 대비 퀄리티 최고예요. 요기요 다음에도 또 이용할래요.,positive,positive
+r0092,e043,쿠팡이츠,delivery,딜리버리,브랜드,2026-05-24,4,"쿠팡이츠 배달 진짜 만족스러웠어요, 50% OFF 받고 완전 이득!",positive,positive
+r0093,e043,쿠팡이츠,delivery,딜리버리,브랜드,2026-05-20,4,배달 상태도 좋고 직원분도 친절해서 기분 좋게 다녀왔습니다.,positive,positive
+r0094,e043,쿠팡이츠,delivery,딜리버리,브랜드,2026-06-03,5,가격 대비 퀄리티 최고예요. 쿠팡이츠 다음에도 또 이용할래요.,positive,positive
+r0095,e044,Domino's Pizza,delivery,딜리버리,소상공인,2026-06-21,4,성수동에서 이런 이벤트 찾기 힘든데 완전 만족했어요.,positive,positive
+r0096,e046,Mister Pizza,delivery,딜리버리,브랜드,2026-06-10,4,가격 대비 퀄리티 최고예요. Mister Pizza 다음에도 또 이용할래요.,positive,positive
+r0097,e047,bhc치킨,delivery,딜리버리,브랜드,2026-06-18,5,이 정도 할인이면 무조건 가야죠. 강력 추천합니다!,positive,positive
+r0098,e047,bhc치킨,delivery,딜리버리,브랜드,2026-05-27,4,이 정도 할인이면 무조건 가야죠. 강력 추천합니다!,positive,positive
+r0099,e047,bhc치킨,delivery,딜리버리,브랜드,2026-06-14,4,배달 상태도 좋고 직원분도 친절해서 기분 좋게 다녀왔습니다.,positive,positive
+r0100,e048,교촌치킨,delivery,딜리버리,브랜드,2026-06-12,4,성수동에서 이런 이벤트 찾기 힘든데 완전 만족했어요.,positive,positive
+r0101,e048,교촌치킨,delivery,딜리버리,브랜드,2026-06-16,4,배달 상태도 좋고 직원분도 친절해서 기분 좋게 다녀왔습니다.,positive,positive
+r0102,e050,굽네치킨,delivery,딜리버리,브랜드,2026-05-17,3,배달 나쁘지 않은데 특별히 인상적이지도 않았어요.,neutral,neutral
+r0103,e050,굽네치킨,delivery,딜리버리,브랜드,2026-05-06,3,할인은 괜찮은데 대기줄이 좀 길었습니다.,neutral,negative
+r0104,e051,야놀자,stay,스테이,소상공인,2026-05-07,5,숙소 상태도 좋고 직원분도 친절해서 기분 좋게 다녀왔습니다.,positive,positive
+r0105,e052,Agoda,stay,스테이,브랜드,2026-05-25,4,이 정도 할인이면 무조건 가야죠. 강력 추천합니다!,positive,positive
+r0106,e052,Agoda,stay,스테이,브랜드,2026-05-26,5,성수동에서 이런 이벤트 찾기 힘든데 완전 만족했어요.,positive,positive
+r0107,e053,Booking.com,stay,스테이,브랜드,2026-06-02,4,"Booking.com 숙소 진짜 만족스러웠어요, 35% OFF 받고 완전 이득!",positive,positive
+r0108,e053,Booking.com,stay,스테이,브랜드,2026-06-09,4,성수동에서 이런 이벤트 찾기 힘든데 완전 만족했어요.,positive,positive
+r0109,e056,여기어때,stay,스테이,브랜드,2026-06-01,5,가격 대비 퀄리티 최고예요. 여기어때 다음에도 또 이용할래요.,positive,positive
+r0110,e056,여기어때,stay,스테이,브랜드,2026-06-01,5,"여기어때 숙소 진짜 만족스러웠어요, 최대 70% OFF 받고 완전 이득!",positive,positive
+r0111,e056,여기어때,stay,스테이,브랜드,2026-06-02,5,가격 대비 퀄리티 최고예요. 여기어때 다음에도 또 이용할래요.,positive,positive
+r0112,e056,여기어때,stay,스테이,브랜드,2026-06-07,4,이 정도 할인이면 무조건 가야죠. 강력 추천합니다!,positive,positive
+r0113,e057,Marriott,stay,스테이,브랜드,2026-05-31,5,이 정도 할인이면 무조건 가야죠. 강력 추천합니다!,positive,positive
+r0114,e058,Hilton,stay,스테이,소상공인,2026-06-17,4,성수동에서 이런 이벤트 찾기 힘든데 완전 만족했어요.,positive,positive
+r0115,e058,Hilton,stay,스테이,소상공인,2026-06-17,4,가격 대비 퀄리티 최고예요. Hilton 다음에도 또 이용할래요.,positive,positive
+r0116,e060,Trip.com,stay,스테이,브랜드,2026-05-18,4,가격 대비 퀄리티 최고예요. Trip.com 다음에도 또 이용할래요.,positive,positive
+r0117,e061,IKEA,living,리빙,브랜드,2026-05-11,4,성수동에서 이런 이벤트 찾기 힘든데 완전 만족했어요.,positive,positive
+r0118,e061,IKEA,living,리빙,브랜드,2026-05-08,4,"IKEA 제품 진짜 만족스러웠어요, 40% OFF 받고 완전 이득!",positive,positive
+r0119,e062,무인양품,living,리빙,브랜드,2026-05-19,4,제품 상태도 좋고 직원분도 친절해서 기분 좋게 다녀왔습니다.,positive,positive
+r0120,e062,무인양품,living,리빙,브랜드,2026-05-13,4,할인은 괜찮은데 대기줄이 좀 길었습니다.,positive,negative
+r0121,e063,현대리바트,living,리빙,브랜드,2026-05-29,4,"현대리바트 제품 진짜 만족스러웠어요, 1+1 받고 완전 이득!",positive,positive
+r0122,e064,에이스침대,living,리빙,브랜드,2026-05-25,4,가격 대비 퀄리티 최고예요. 에이스침대 다음에도 또 이용할래요.,positive,positive
+r0123,e064,에이스침대,living,리빙,브랜드,2026-05-27,4,제품 상태도 좋고 직원분도 친절해서 기분 좋게 다녀왔습니다.,positive,positive
+r0124,e064,에이스침대,living,리빙,브랜드,2026-06-14,5,이 정도 할인이면 무조건 가야죠. 강력 추천합니다!,positive,positive
+r0125,e065,Zara Home,living,리빙,소상공인,2026-06-03,4,"Zara Home 제품 진짜 만족스러웠어요, 35% OFF 받고 완전 이득!",positive,positive
+r0126,e066,Nitori,living,리빙,브랜드,2026-06-02,5,할인은 괜찮은데 대기줄이 좀 길었습니다.,positive,negative
+r0127,e066,Nitori,living,리빙,브랜드,2026-06-02,4,성수동에서 이런 이벤트 찾기 힘든데 완전 만족했어요.,positive,positive
+r0128,e067,한샘,living,리빙,브랜드,2026-06-03,5,제품 나쁘지 않은데 특별히 인상적이지도 않았어요.,positive,neutral
+r0129,e067,한샘,living,리빙,브랜드,2026-06-03,4,가격 대비 퀄리티 최고예요. 한샘 다음에도 또 이용할래요.,positive,positive
+r0130,e067,한샘,living,리빙,브랜드,2026-06-10,5,성수동에서 이런 이벤트 찾기 힘든데 완전 만족했어요.,positive,positive
+r0131,e067,한샘,living,리빙,브랜드,2026-06-08,4,제품 상태도 좋고 직원분도 친절해서 기분 좋게 다녀왔습니다.,positive,positive
+r0132,e067,한샘,living,리빙,브랜드,2026-05-25,5,제품 상태도 좋고 직원분도 친절해서 기분 좋게 다녀왔습니다.,positive,positive
+r0133,e067,한샘,living,리빙,브랜드,2026-06-11,5,제품 상태도 좋고 직원분도 친절해서 기분 좋게 다녀왔습니다.,positive,positive
+r0134,e067,한샘,living,리빙,브랜드,2026-06-15,4,이 정도 할인이면 무조건 가야죠. 강력 추천합니다!,positive,positive
+r0135,e067,한샘,living,리빙,브랜드,2026-06-12,5,이 정도 할인이면 무조건 가야죠. 강력 추천합니다!,positive,positive
+r0136,e068,Tempur,living,리빙,브랜드,2026-06-02,4,가격 대비 퀄리티 최고예요. Tempur 다음에도 또 이용할래요.,positive,positive
+r0137,e068,Tempur,living,리빙,브랜드,2026-06-01,4,가격 대비 퀄리티 최고예요. Tempur 다음에도 또 이용할래요.,positive,positive
+r0138,e069,Casper,living,리빙,브랜드,2026-05-15,5,제품 상태도 좋고 직원분도 친절해서 기분 좋게 다녀왔습니다.,positive,positive
+r0139,e071,무신사 스탠다드,popup,팝업,브랜드,2026-07-17,5,공간 상태도 좋고 직원분도 친절해서 기분 좋게 다녀왔습니다.,positive,positive
+r0140,e071,무신사 스탠다드,popup,팝업,브랜드,2026-07-18,3,공간 나쁘지 않은데 특별히 인상적이지도 않았어요.,neutral,neutral
+r0141,e071,무신사 스탠다드,popup,팝업,브랜드,2026-07-23,5,공간 나쁘지 않은데 특별히 인상적이지도 않았어요.,positive,neutral
+r0142,e071,무신사 스탠다드,popup,팝업,브랜드,2026-07-25,4,"무신사 스탠다드 공간 진짜 만족스러웠어요, 방문 인증 시 사은품 받고 완전 이득!",positive,positive
+r0143,e072,다이슨,popup,팝업,브랜드,2026-08-03,5,공간 상태도 좋고 직원분도 친절해서 기분 좋게 다녀왔습니다.,positive,positive
+r0144,e072,다이슨,popup,팝업,브랜드,2026-07-17,3,할인은 괜찮은데 대기줄이 좀 길었습니다.,neutral,negative
+r0145,e072,다이슨,popup,팝업,브랜드,2026-07-25,4,공간 상태도 좋고 직원분도 친절해서 기분 좋게 다녀왔습니다.,positive,positive
+r0146,e073,동네빵집 밀도,popup,팝업,소상공인,2026-07-06,4,이 정도 할인이면 무조건 가야죠. 강력 추천합니다!,positive,positive
+r0147,e075,카페 소슬,popup,팝업,소상공인,2026-07-14,4,기대했던 것보다 별로였어요. 공간 아쉬웠습니다.,positive,negative
+r0148,e075,카페 소슬,popup,팝업,소상공인,2026-07-26,2,직원 응대가 다소 불친절했어요.,negative,neutral
+r0149,e076,폴로 랄프로렌,fashion,패션,브랜드,2026-07-11,5,"폴로 랄프로렌 옷 진짜 만족스러웠어요, 45% OFF 받고 완전 이득!",positive,positive
+r0150,e076,폴로 랄프로렌,fashion,패션,브랜드,2026-07-13,3,폴로 랄프로렌 처음 이용해봤는데 보통이었어요.,neutral,neutral
+r0151,e077,챔피온,fashion,패션,브랜드,2026-07-27,4,옷 상태도 좋고 직원분도 친절해서 기분 좋게 다녀왔습니다.,positive,positive
+r0152,e078,스파오,fashion,패션,브랜드,2026-08-02,5,그냥 무난했어요. 재방문은 고민 중입니다.,positive,neutral
+r0153,e078,스파오,fashion,패션,브랜드,2026-08-09,4,옷 상태도 좋고 직원분도 친절해서 기분 좋게 다녀왔습니다.,positive,positive
+r0154,e078,스파오,fashion,패션,브랜드,2026-08-09,4,이 정도 할인이면 무조건 가야죠. 강력 추천합니다!,positive,positive
+r0155,e078,스파오,fashion,패션,브랜드,2026-08-04,5,"스파오 옷 진짜 만족스러웠어요, 30% OFF 받고 완전 이득!",positive,positive
+r0156,e079,탑텐,fashion,패션,소상공인,2026-08-10,5,"탑텐 옷 진짜 만족스러웠어요, 45% OFF 받고 완전 이득!",positive,positive
+r0157,e079,탑텐,fashion,패션,소상공인,2026-08-10,4,"탑텐 옷 진짜 만족스러웠어요, 45% OFF 받고 완전 이득!",positive,positive
+r0158,e080,에잇세컨즈,fashion,패션,브랜드,2026-07-15,4,이 정도 할인이면 무조건 가야죠. 강력 추천합니다!,positive,positive
+r0159,e081,커버낫,fashion,패션,브랜드,2026-08-03,3,옷 나쁘지 않은데 특별히 인상적이지도 않았어요.,neutral,neutral
+r0160,e081,커버낫,fashion,패션,브랜드,2026-07-31,5,"커버낫 옷 진짜 만족스러웠어요, 방문 인증 시 사은품 받고 완전 이득!",positive,positive
+r0161,e082,디스커버리 익스페디션,fashion,패션,브랜드,2026-08-15,2,직원 응대가 다소 불친절했어요.,negative,neutral
+r0162,e082,디스커버리 익스페디션,fashion,패션,브랜드,2026-08-07,3,그냥 무난했어요. 재방문은 고민 중입니다.,neutral,neutral
+r0163,e082,디스커버리 익스페디션,fashion,패션,브랜드,2026-08-18,3,할인은 괜찮은데 대기줄이 좀 길었습니다.,neutral,negative
+r0164,e085,컨버스,fashion,패션,브랜드,2026-07-13,4,옷 상태도 좋고 직원분도 친절해서 기분 좋게 다녀왔습니다.,positive,positive
+r0165,e085,컨버스,fashion,패션,브랜드,2026-07-20,4,이 정도 할인이면 무조건 가야죠. 강력 추천합니다!,positive,positive
+r0166,e085,컨버스,fashion,패션,브랜드,2026-07-20,4,성수동에서 이런 이벤트 찾기 힘든데 완전 만족했어요.,positive,positive
+r0167,e086,올리브영,beauty,뷰티,브랜드,2026-08-05,4,제품 상태도 좋고 직원분도 친절해서 기분 좋게 다녀왔습니다.,positive,positive
+r0168,e086,올리브영,beauty,뷰티,브랜드,2026-07-15,4,성수동에서 이런 이벤트 찾기 힘든데 완전 만족했어요.,positive,positive
+r0169,e086,올리브영,beauty,뷰티,브랜드,2026-07-05,5,이 정도 할인이면 무조건 가야죠. 강력 추천합니다!,positive,positive
+r0170,e086,올리브영,beauty,뷰티,브랜드,2026-07-26,3,그냥 무난했어요. 재방문은 고민 중입니다.,neutral,neutral
+r0171,e086,올리브영,beauty,뷰티,브랜드,2026-07-09,5,"올리브영 제품 진짜 만족스러웠어요, 멤버십 등급별 쿠폰 받고 완전 이득!",positive,positive
+r0172,e087,올리브영,beauty,뷰티,브랜드,2026-07-23,3,제품 나쁘지 않은데 특별히 인상적이지도 않았어요.,neutral,neutral
+r0173,e087,올리브영,beauty,뷰티,브랜드,2026-07-03,4,제품 상태도 좋고 직원분도 친절해서 기분 좋게 다녀왔습니다.,positive,positive
+r0174,e088,미샤,beauty,뷰티,브랜드,2026-08-09,4,제품 상태도 좋고 직원분도 친절해서 기분 좋게 다녀왔습니다.,positive,positive
+r0175,e088,미샤,beauty,뷰티,브랜드,2026-08-05,4,성수동에서 이런 이벤트 찾기 힘든데 완전 만족했어요.,positive,positive
+r0176,e090,롬앤,beauty,뷰티,브랜드,2026-07-21,3,롬앤 처음 이용해봤는데 보통이었어요.,neutral,neutral
+r0177,e090,롬앤,beauty,뷰티,브랜드,2026-07-20,4,제품 상태도 좋고 직원분도 친절해서 기분 좋게 다녀왔습니다.,positive,positive
+r0178,e092,닥터자르트,beauty,뷰티,브랜드,2026-07-31,3,닥터자르트 처음 이용해봤는데 보통이었어요.,neutral,neutral
+r0179,e092,닥터자르트,beauty,뷰티,브랜드,2026-07-31,4,제품 상태도 좋고 직원분도 친절해서 기분 좋게 다녀왔습니다.,positive,positive
+r0180,e094,토니모리,beauty,뷰티,브랜드,2026-07-16,4,이 정도 할인이면 무조건 가야죠. 강력 추천합니다!,positive,positive
+r0181,e094,토니모리,beauty,뷰티,브랜드,2026-07-13,5,"토니모리 제품 진짜 만족스러웠어요, 55% OFF 받고 완전 이득!",positive,positive
+r0182,e094,토니모리,beauty,뷰티,브랜드,2026-07-20,5,성수동에서 이런 이벤트 찾기 힘든데 완전 만족했어요.,positive,positive
+r0183,e094,토니모리,beauty,뷰티,브랜드,2026-07-13,4,성수동에서 이런 이벤트 찾기 힘든데 완전 만족했어요.,positive,positive
+r0184,e095,네이처리퍼블릭,beauty,뷰티,브랜드,2026-08-04,4,제품 상태도 좋고 직원분도 친절해서 기분 좋게 다녀왔습니다.,positive,positive
+r0185,e095,네이처리퍼블릭,beauty,뷰티,브랜드,2026-07-25,4,"네이처리퍼블릭 제품 진짜 만족스러웠어요, 방문 인증 시 사은품 받고 완전 이득!",positive,positive
+r0186,e095,네이처리퍼블릭,beauty,뷰티,브랜드,2026-07-31,5,제품 나쁘지 않은데 특별히 인상적이지도 않았어요.,positive,neutral
+r0187,e095,네이처리퍼블릭,beauty,뷰티,브랜드,2026-08-01,4,"재고가 이미 없어서 할인 혜택을 못 받았어요, 실망.",positive,negative
+r0188,e096,CU,food,푸드,브랜드,2026-07-15,5,이 정도 할인이면 무조건 가야죠. 강력 추천합니다!,positive,positive
+r0189,e096,CU,food,푸드,브랜드,2026-07-08,5,이 정도 할인이면 무조건 가야죠. 강력 추천합니다!,positive,positive
+r0190,e096,CU,food,푸드,브랜드,2026-07-26,5,성수동에서 이런 이벤트 찾기 힘든데 완전 만족했어요.,positive,positive
+r0191,e097,GS25,food,푸드,브랜드,2026-07-31,5,성수동에서 이런 이벤트 찾기 힘든데 완전 만족했어요.,positive,positive
+r0192,e097,GS25,food,푸드,브랜드,2026-07-24,4,성수동에서 이런 이벤트 찾기 힘든데 완전 만족했어요.,positive,positive
+r0193,e097,GS25,food,푸드,브랜드,2026-07-09,4,성수동에서 이런 이벤트 찾기 힘든데 완전 만족했어요.,positive,positive
+r0194,e097,GS25,food,푸드,브랜드,2026-07-05,4,"GS25 음식 진짜 만족스러웠어요, 할인가 판매 받고 완전 이득!",positive,positive
+r0195,e097,GS25,food,푸드,브랜드,2026-07-14,3,할인은 괜찮은데 대기줄이 좀 길었습니다.,neutral,negative
+r0196,e097,GS25,food,푸드,브랜드,2026-07-31,5,"GS25 음식 진짜 만족스러웠어요, 할인가 판매 받고 완전 이득!",positive,positive
+r0197,e097,GS25,food,푸드,브랜드,2026-07-26,4,가격 대비 퀄리티 최고예요. GS25 다음에도 또 이용할래요.,positive,positive
+r0198,e097,GS25,food,푸드,브랜드,2026-07-26,4,성수동에서 이런 이벤트 찾기 힘든데 완전 만족했어요.,positive,positive
+r0199,e097,GS25,food,푸드,브랜드,2026-07-10,4,가격 대비 퀄리티 최고예요. GS25 다음에도 또 이용할래요.,positive,positive
+r0200,e099,이마트24,food,푸드,브랜드,2026-07-05,4,가격 대비 퀄리티 최고예요. 이마트24 다음에도 또 이용할래요.,positive,positive
+r0201,e099,이마트24,food,푸드,브랜드,2026-07-19,3,이마트24 처음 이용해봤는데 보통이었어요.,neutral,neutral
+r0202,e099,이마트24,food,푸드,브랜드,2026-07-15,5,음식 상태도 좋고 직원분도 친절해서 기분 좋게 다녀왔습니다.,positive,positive
+r0203,e099,이마트24,food,푸드,브랜드,2026-07-07,5,성수동에서 이런 이벤트 찾기 힘든데 완전 만족했어요.,positive,positive
+r0204,e100,이마트24,food,푸드,브랜드,2026-08-02,5,성수동에서 이런 이벤트 찾기 힘든데 완전 만족했어요.,positive,positive
+r0205,e100,이마트24,food,푸드,브랜드,2026-07-19,4,"이마트24 음식 진짜 만족스러웠어요, 100원 특가 받고 완전 이득!",positive,positive
+r0206,e100,이마트24,food,푸드,브랜드,2026-07-19,5,"이마트24 음식 진짜 만족스러웠어요, 100원 특가 받고 완전 이득!",positive,positive
+r0207,e100,이마트24,food,푸드,브랜드,2026-07-24,4,성수동에서 이런 이벤트 찾기 힘든데 완전 만족했어요.,positive,positive
+r0208,e100,이마트24,food,푸드,브랜드,2026-08-01,5,가격 대비 퀄리티 최고예요. 이마트24 다음에도 또 이용할래요.,positive,positive
+r0209,e100,이마트24,food,푸드,브랜드,2026-07-09,4,음식 상태도 좋고 직원분도 친절해서 기분 좋게 다녀왔습니다.,positive,positive
+r0210,e100,이마트24,food,푸드,브랜드,2026-08-01,4,가격 대비 퀄리티 최고예요. 이마트24 다음에도 또 이용할래요.,positive,positive
+r0211,e100,이마트24,food,푸드,브랜드,2026-07-26,4,가격 대비 퀄리티 최고예요. 이마트24 다음에도 또 이용할래요.,positive,positive
+r0212,e100,이마트24,food,푸드,브랜드,2026-07-12,4,성수동에서 이런 이벤트 찾기 힘든데 완전 만족했어요.,positive,positive
+r0213,e100,이마트24,food,푸드,브랜드,2026-07-18,4,가격 대비 퀄리티 최고예요. 이마트24 다음에도 또 이용할래요.,positive,positive
+r0214,e101,이마트에브리데이,food,푸드,브랜드,2026-07-10,4,"이마트에브리데이 음식 진짜 만족스러웠어요, 최대 50% OFF 받고 완전 이득!",positive,positive
+r0215,e102,배스킨라빈스,food,푸드,브랜드,2026-07-12,4,"배스킨라빈스 음식 진짜 만족스러웠어요, 방문 인증 시 사은품 받고 완전 이득!",positive,positive
+r0216,e102,배스킨라빈스,food,푸드,브랜드,2026-07-13,5,음식 상태도 좋고 직원분도 친절해서 기분 좋게 다녀왔습니다.,positive,positive
+r0217,e103,공차,food,푸드,브랜드,2026-08-01,5,음식 상태도 좋고 직원분도 친절해서 기분 좋게 다녀왔습니다.,positive,positive
+r0218,e103,공차,food,푸드,브랜드,2026-07-19,5,"공차 음식 진짜 만족스러웠어요, 60% OFF 받고 완전 이득!",positive,positive
+r0219,e103,공차,food,푸드,브랜드,2026-07-18,4,가격 대비 퀄리티 최고예요. 공차 다음에도 또 이용할래요.,positive,positive
+r0220,e105,이디야커피,food,푸드,브랜드,2026-07-23,4,음식 상태도 좋고 직원분도 친절해서 기분 좋게 다녀왔습니다.,positive,positive
+r0221,e105,이디야커피,food,푸드,브랜드,2026-08-02,4,이 정도 할인이면 무조건 가야죠. 강력 추천합니다!,positive,positive
+r0222,e105,이디야커피,food,푸드,브랜드,2026-08-04,4,직원 응대가 다소 불친절했어요.,positive,neutral
+r0223,e105,이디야커피,food,푸드,브랜드,2026-07-21,4,"이디야커피 음식 진짜 만족스러웠어요, 30% OFF 받고 완전 이득!",positive,positive
+r0224,e107,LG전자,tech,테크,소상공인,2026-07-18,3,그냥 무난했어요. 재방문은 고민 중입니다.,neutral,neutral
+r0225,e108,브라운,tech,테크,브랜드,2026-07-28,5,이 정도 할인이면 무조건 가야죠. 강력 추천합니다!,positive,positive
+r0226,e108,브라운,tech,테크,브랜드,2026-07-26,5,성수동에서 이런 이벤트 찾기 힘든데 완전 만족했어요.,positive,positive
+r0227,e111,소니,tech,테크,브랜드,2026-07-23,3,제품 나쁘지 않은데 특별히 인상적이지도 않았어요.,neutral,neutral
+r0228,e112,보스,tech,테크,브랜드,2026-07-22,4,성수동에서 이런 이벤트 찾기 힘든데 완전 만족했어요.,positive,positive
+r0229,e113,로지텍,tech,테크,브랜드,2026-08-16,4,"로지텍 제품 진짜 만족스러웠어요, 방문 인증 시 사은품 받고 완전 이득!",positive,positive
+r0230,e113,로지텍,tech,테크,브랜드,2026-08-16,3,제품 나쁘지 않은데 특별히 인상적이지도 않았어요.,neutral,neutral
+r0231,e114,레이저,tech,테크,소상공인,2026-08-01,5,이 정도 할인이면 무조건 가야죠. 강력 추천합니다!,positive,positive
+r0232,e114,레이저,tech,테크,소상공인,2026-07-29,5,이 정도 할인이면 무조건 가야죠. 강력 추천합니다!,positive,positive
+r0233,e117,쿠팡이츠,delivery,딜리버리,브랜드,2026-07-27,5,"쿠팡이츠 배달 진짜 만족스러웠어요, 10% OFF 받고 완전 이득!",positive,positive
+r0234,e117,쿠팡이츠,delivery,딜리버리,브랜드,2026-07-25,3,배달 나쁘지 않은데 특별히 인상적이지도 않았어요.,neutral,neutral
+r0235,e118,땡겨요,delivery,딜리버리,브랜드,2026-08-20,5,이 정도 할인이면 무조건 가야죠. 강력 추천합니다!,positive,positive
+r0236,e118,땡겨요,delivery,딜리버리,브랜드,2026-08-14,5,가격 대비 퀄리티 최고예요. 땡겨요 다음에도 또 이용할래요.,positive,positive
+r0237,e118,땡겨요,delivery,딜리버리,브랜드,2026-08-18,4,가격 대비 퀄리티 최고예요. 땡겨요 다음에도 또 이용할래요.,positive,positive
+r0238,e119,위메프오,delivery,딜리버리,브랜드,2026-07-30,5,성수동에서 이런 이벤트 찾기 힘든데 완전 만족했어요.,positive,positive
+r0239,e119,위메프오,delivery,딜리버리,브랜드,2026-08-06,4,가격 대비 퀄리티 최고예요. 위메프오 다음에도 또 이용할래요.,positive,positive
+r0240,e119,위메프오,delivery,딜리버리,브랜드,2026-07-21,4,이 정도 할인이면 무조건 가야죠. 강력 추천합니다!,positive,positive
+r0241,e121,배달특급,delivery,딜리버리,소상공인,2026-08-01,4,성수동에서 이런 이벤트 찾기 힘든데 완전 만족했어요.,positive,positive
+r0242,e121,배달특급,delivery,딜리버리,소상공인,2026-07-29,5,"배달특급 배달 진짜 만족스러웠어요, 60% OFF 받고 완전 이득!",positive,positive
+r0243,e122,각지역 소상공인 배달,delivery,딜리버리,브랜드,2026-08-20,3,배달 나쁘지 않은데 특별히 인상적이지도 않았어요.,neutral,neutral
+r0244,e123,동네줌,delivery,딜리버리,브랜드,2026-08-10,4,가격 대비 퀄리티 최고예요. 동네줌 다음에도 또 이용할래요.,positive,positive
+r0245,e124,경기배달특급,delivery,딜리버리,브랜드,2026-08-16,4,배달 상태도 좋고 직원분도 친절해서 기분 좋게 다녀왔습니다.,positive,positive
+r0246,e124,경기배달특급,delivery,딜리버리,브랜드,2026-08-24,4,배달 상태도 좋고 직원분도 친절해서 기분 좋게 다녀왔습니다.,positive,positive
+r0247,e125,전주맛배달,delivery,딜리버리,브랜드,2026-07-21,4,"전주맛배달 배달 진짜 만족스러웠어요, 40% OFF 받고 완전 이득!",positive,positive
+r0248,e125,전주맛배달,delivery,딜리버리,브랜드,2026-07-19,3,할인은 괜찮은데 대기줄이 좀 길었습니다.,neutral,negative
+r0249,e125,전주맛배달,delivery,딜리버리,브랜드,2026-07-23,5,성수동에서 이런 이벤트 찾기 힘든데 완전 만족했어요.,positive,positive
+r0250,e127,부킹닷컴,stay,스테이,브랜드,2026-08-03,5,"부킹닷컴 숙소 진짜 만족스러웠어요, 최대 70% OFF 받고 완전 이득!",positive,positive
+r0251,e127,부킹닷컴,stay,스테이,브랜드,2026-08-10,5,숙소 상태도 좋고 직원분도 친절해서 기분 좋게 다녀왔습니다.,positive,positive
+r0252,e128,호텔스컴바인,stay,스테이,소상공인,2026-08-09,4,이 정도 할인이면 무조건 가야죠. 강력 추천합니다!,positive,positive
+r0253,e128,호텔스컴바인,stay,스테이,소상공인,2026-08-08,5,성수동에서 이런 이벤트 찾기 힘든데 완전 만족했어요.,positive,positive
+r0254,e129,메리어트,stay,스테이,브랜드,2026-08-18,5,숙소 상태도 좋고 직원분도 친절해서 기분 좋게 다녀왔습니다.,positive,positive
+r0255,e129,메리어트,stay,스테이,브랜드,2026-08-25,4,성수동에서 이런 이벤트 찾기 힘든데 완전 만족했어요.,positive,positive
+r0256,e130,롯데호텔,stay,스테이,브랜드,2026-07-28,5,숙소 상태도 좋고 직원분도 친절해서 기분 좋게 다녀왔습니다.,positive,positive
+r0257,e131,신라스테이,stay,스테이,브랜드,2026-08-02,5,가격 대비 퀄리티 최고예요. 신라스테이 다음에도 또 이용할래요.,positive,positive
+r0258,e131,신라스테이,stay,스테이,브랜드,2026-08-17,5,숙소 상태도 좋고 직원분도 친절해서 기분 좋게 다녀왔습니다.,positive,positive
+r0259,e131,신라스테이,stay,스테이,브랜드,2026-08-03,4,기대했던 것보다 별로였어요. 숙소 아쉬웠습니다.,positive,negative
+r0260,e134,소노벨,stay,스테이,브랜드,2026-07-20,5,성수동에서 이런 이벤트 찾기 힘든데 완전 만족했어요.,positive,positive
+r0261,e136,일룸,living,리빙,브랜드,2026-08-05,5,"일룸 제품 진짜 만족스러웠어요, 35% OFF 받고 완전 이득!",positive,positive
+r0262,e136,일룸,living,리빙,브랜드,2026-08-07,5,제품 상태도 좋고 직원분도 친절해서 기분 좋게 다녀왔습니다.,positive,positive
+r0263,e137,리바트,living,리빙,브랜드,2026-07-26,4,가격 대비 퀄리티 최고예요. 리바트 다음에도 또 이용할래요.,positive,positive
+r0264,e137,리바트,living,리빙,브랜드,2026-08-09,4,가격 대비 퀄리티 최고예요. 리바트 다음에도 또 이용할래요.,positive,positive
+r0265,e138,에이스침대,living,리빙,브랜드,2026-08-10,4,가격 대비 퀄리티 최고예요. 에이스침대 다음에도 또 이용할래요.,positive,positive
+r0266,e138,에이스침대,living,리빙,브랜드,2026-08-21,4,성수동에서 이런 이벤트 찾기 힘든데 완전 만족했어요.,positive,positive
+r0267,e139,시몬스,living,리빙,브랜드,2026-07-21,4,제품 상태도 좋고 직원분도 친절해서 기분 좋게 다녀왔습니다.,positive,positive
+r0268,e140,이케아,living,리빙,브랜드,2026-08-05,4,직원 응대가 다소 불친절했어요.,positive,neutral
+r0269,e140,이케아,living,리빙,브랜드,2026-08-05,4,가격 대비 퀄리티 최고예요. 이케아 다음에도 또 이용할래요.,positive,positive
+r0270,e141,무인양품,living,리빙,브랜드,2026-08-09,3,할인은 괜찮은데 대기줄이 좀 길었습니다.,neutral,negative
+r0271,e141,무인양품,living,리빙,브랜드,2026-08-01,4,이 정도 할인이면 무조건 가야죠. 강력 추천합니다!,positive,positive
+r0272,e142,자주,living,리빙,소상공인,2026-08-22,4,성수동에서 이런 이벤트 찾기 힘든데 완전 만족했어요.,positive,positive
+r0273,e143,이마트리빙,living,리빙,브랜드,2026-07-24,5,성수동에서 이런 이벤트 찾기 힘든데 완전 만족했어요.,positive,positive
+r0274,e143,이마트리빙,living,리빙,브랜드,2026-07-20,4,제품 상태도 좋고 직원분도 친절해서 기분 좋게 다녀왔습니다.,positive,positive
+r0275,e144,롯데하이마트,living,리빙,브랜드,2026-08-05,4,성수동에서 이런 이벤트 찾기 힘든데 완전 만족했어요.,positive,positive
+r0276,e145,까사미아,living,리빙,브랜드,2026-08-08,4,가격 대비 퀄리티 최고예요. 까사미아 다음에도 또 이용할래요.,positive,positive
+r0277,e145,까사미아,living,리빙,브랜드,2026-08-08,4,제품 상태도 좋고 직원분도 친절해서 기분 좋게 다녀왔습니다.,positive,positive
+r0278,e145,까사미아,living,리빙,브랜드,2026-08-16,4,"까사미아 제품 진짜 만족스러웠어요, 2+1 받고 완전 이득!",positive,positive
+r0279,e145,까사미아,living,리빙,브랜드,2026-08-09,4,제품 상태도 좋고 직원분도 친절해서 기분 좋게 다녀왔습니다.,positive,positive
+r0280,e146,아디다스 오리지널스,popup,팝업,브랜드,2026-08-09,5,가격 대비 퀄리티 최고예요. 아디다스 오리지널스 다음에도 또 이용할래요.,positive,positive
+r0281,e146,아디다스 오리지널스,popup,팝업,브랜드,2026-07-22,4,"아디다스 오리지널스 공간 진짜 만족스러웠어요, 60% OFF 받고 완전 이득!",positive,positive
+r0282,e147,젠틀몬스터,popup,팝업,브랜드,2026-08-17,4,이 정도 할인이면 무조건 가야죠. 강력 추천합니다!,positive,positive
+r0283,e148,탬버린즈,popup,팝업,브랜드,2026-07-17,4,성수동에서 이런 이벤트 찾기 힘든데 완전 만족했어요.,positive,positive
+r0284,e148,탬버린즈,popup,팝업,브랜드,2026-07-23,4,가격 대비 퀄리티 최고예요. 탬버린즈 다음에도 또 이용할래요.,positive,positive
+r0285,e148,탬버린즈,popup,팝업,브랜드,2026-07-12,5,"탬버린즈 공간 진짜 만족스러웠어요, 최대 70% OFF 받고 완전 이득!",positive,positive
+r0286,e148,탬버린즈,popup,팝업,브랜드,2026-07-15,4,"탬버린즈 공간 진짜 만족스러웠어요, 최대 70% OFF 받고 완전 이득!",positive,positive
+r0287,e148,탬버린즈,popup,팝업,브랜드,2026-07-12,5,공간 상태도 좋고 직원분도 친절해서 기분 좋게 다녀왔습니다.,positive,positive
+r0288,e149,마뗑킴,popup,팝업,소상공인,2026-07-28,4,성수동에서 이런 이벤트 찾기 힘든데 완전 만족했어요.,positive,positive
+r0289,e149,마뗑킴,popup,팝업,소상공인,2026-07-20,5,이 정도 할인이면 무조건 가야죠. 강력 추천합니다!,positive,positive
+r0290,e150,앤더슨벨,popup,팝업,브랜드,2026-08-06,4,가격 대비 퀄리티 최고예요. 앤더슨벨 다음에도 또 이용할래요.,positive,positive
+r0291,e151,성수 로컬 소품샵,popup,팝업,브랜드,2026-08-18,4,공간 상태도 좋고 직원분도 친절해서 기분 좋게 다녀왔습니다.,positive,positive
+r0292,e151,성수 로컬 소품샵,popup,팝업,브랜드,2026-08-24,5,성수 로컬 소품샵 처음 이용해봤는데 보통이었어요.,positive,neutral
+r0293,e151,성수 로컬 소품샵,popup,팝업,브랜드,2026-08-11,4,성수동에서 이런 이벤트 찾기 힘든데 완전 만족했어요.,positive,positive
+r0294,e153,연남동 독립서점,popup,팝업,브랜드,2026-08-01,3,그냥 무난했어요. 재방문은 고민 중입니다.,neutral,neutral
+r0295,e153,연남동 독립서점,popup,팝업,브랜드,2026-07-26,4,성수동에서 이런 이벤트 찾기 힘든데 완전 만족했어요.,positive,positive
+r0296,e153,연남동 독립서점,popup,팝업,브랜드,2026-07-17,4,공간 상태도 좋고 직원분도 친절해서 기분 좋게 다녀왔습니다.,positive,positive
+r0297,e154,망원동 수제청 공방,popup,팝업,브랜드,2026-08-03,3,그냥 무난했어요. 재방문은 고민 중입니다.,neutral,neutral
+r0298,e154,망원동 수제청 공방,popup,팝업,브랜드,2026-08-07,4,가격 대비 퀄리티 최고예요. 망원동 수제청 공방 다음에도 또 이용할래요.,positive,positive
+r0299,e155,한남 아트팝업,popup,팝업,브랜드,2026-07-22,5,공간 상태도 좋고 직원분도 친절해서 기분 좋게 다녀왔습니다.,positive,positive
+r0300,e156,합정 빈티지숍,popup,팝업,소상공인,2026-08-07,4,이 정도 할인이면 무조건 가야죠. 강력 추천합니다!,positive,positive
+r0301,e156,합정 빈티지숍,popup,팝업,소상공인,2026-08-09,4,공간 상태도 좋고 직원분도 친절해서 기분 좋게 다녀왔습니다.,positive,positive
+r0302,e156,합정 빈티지숍,popup,팝업,소상공인,2026-08-08,4,공간 상태도 좋고 직원분도 친절해서 기분 좋게 다녀왔습니다.,positive,positive
+r0303,e157,여의도 러닝 팝업,popup,팝업,브랜드,2026-07-11,4,성수동에서 이런 이벤트 찾기 힘든데 완전 만족했어요.,positive,positive
+r0304,e157,여의도 러닝 팝업,popup,팝업,브랜드,2026-07-12,4,성수동에서 이런 이벤트 찾기 힘든데 완전 만족했어요.,positive,positive
+r0305,e158,잠실 스포츠 체험존,popup,팝업,브랜드,2026-07-17,4,가격 대비 퀄리티 최고예요. 잠실 스포츠 체험존 다음에도 또 이용할래요.,positive,positive
+r0306,e159,이태원 글로벌 푸드팝업,popup,팝업,브랜드,2026-08-13,3,공간 나쁘지 않은데 특별히 인상적이지도 않았어요.,neutral,neutral
+r0307,e160,선릉 오피스 간식팝업,popup,팝업,브랜드,2026-08-21,4,그냥 무난했어요. 재방문은 고민 중입니다.,positive,neutral
+r0308,e160,선릉 오피스 간식팝업,popup,팝업,브랜드,2026-08-23,3,선릉 오피스 간식팝업 처음 이용해봤는데 보통이었어요.,neutral,neutral
+r0309,e160,선릉 오피스 간식팝업,popup,팝업,브랜드,2026-08-15,3,선릉 오피스 간식팝업 처음 이용해봤는데 보통이었어요.,neutral,neutral

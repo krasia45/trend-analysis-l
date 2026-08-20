@@ -36,7 +36,7 @@ GitHub 저장소만 예외인데, 이 저장소를 실제로 어느 계정에 �
 **Q3. 더 고도화한 부분이 있나요?**
 네, 아래가 이번에 추가/개선한 것들입니다:
 1. (신규) **데이터 폭 확장** — "1년간 운영했다면" 시나리오. 실제 160건은 그대로 두고,
-   그 이전 253일을 실제 데이터의 경험적 분포로 통계적 백필해 401건·365일로 확장 (§11)
+   그 이전 253일을 실제 데이터의 경험적 분포로 통계적 백필해 401건·365일로 확장 (§6)
 2. (신규) 실서비스 전환 경로 — SQL 마이그레이션 + Supabase 어댑터 + self-test (§5)
 3. (개선) 대시보드를 완전히 오프라인 동작하게 변경 — Chart.js를 CDN이 아니라 파일에
    직접 내장(vendoring), 템플릿/데이터 분리로 재생성 자동화 (§4)
@@ -363,7 +363,9 @@ eventhub-trend-analysis/
 ## 8. 실행 방법
 
 ### 8-1. 환경 설정
+**요구 사항**: Python 3.10 이상
 ```bash
+python3 --version   # 3.10 이상 확인
 python3 -m venv .venv && source .venv/bin/activate   # 선택 사항
 pip install -r requirements.txt
 sudo apt-get install -y fonts-nanum   # 한글 폰트 (matplotlib 한글 깨짐 방지)
@@ -452,3 +454,18 @@ git push -u origin main
 - REPORT.md §6 인사이트 4("6일간 이벤트 공급 공백")만은 시뮬레이션이 아니라 **원본
   카탈로그 자체에서 나온 실제 사실**입니다 — 서비스 오픈 전 지금 바로 검토할 가치가
   있는 유일한 "100% 실측 기반" 발견입니다.
+
+---
+
+## 12. 데이터 출처 및 라이선스 주의
+
+- **원본 데이터**: `data/eventhub_seed_events_raw.json` (160건)은
+  [github.com/krasia45/eventhub](https://github.com/krasia45/eventhub)의 `seed_events.json`
+  (2026-08-20 기준 스냅샷)을 그대로 가져온 것입니다. 브랜드명·할인 조건은 EventHub
+  서비스의 MVP 시연을 위해 구성된 콘텐츠이며, 이미지 URL(`picsum.photos`)은 개발용
+  플레이스홀더입니다 — 실제 브랜드의 공식 이벤트 페이지가 아닙니다.
+- **파생 데이터** (`data/eventhub_*_extended.csv`, `*_simulated.csv` 등)는 위 원본을
+  입력으로 한 통계적 시뮬레이션 산출물이며, 본 저장소 자체 라이선스(별도 명시 없으면
+  분석 코드는 자유롭게 재사용 가능)를 따릅니다.
+- 이 저장소는 **학습/과제 제출 목적의 파생 분석**입니다. EventHub 서비스 본체
+  (`krasia45/eventhub`)의 프로덕션 코드와는 별도로 관리됩니다 (§10 참고).

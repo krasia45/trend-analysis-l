@@ -51,11 +51,12 @@ import urllib.request
 import urllib.error
 import urllib.parse
 from collections import defaultdict
+from pathlib import Path
 
 import numpy as np
 import pandas as pd
 
-OUT_PATH = "/home/claude/eventhub-trend-analysis/data/eventhub_platform_daily_REAL.csv"
+OUT_PATH = Path(__file__).resolve().parent.parent / "data" / "eventhub_platform_daily_REAL.csv"
 
 CATEGORY_KO = {
     "fashion": "패션", "beauty": "뷰티", "food": "푸드", "tech": "테크",

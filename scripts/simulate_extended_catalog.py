@@ -30,11 +30,13 @@
 """
 import numpy as np
 import pandas as pd
+from pathlib import Path
 
 RNG = np.random.default_rng(7)  # 원본 시뮬레이션(seed=42)과 구분되는 별도 고정 시드
 
-REAL_EVENTS_PATH = "/home/claude/eventhub-trend-analysis/data/eventhub_events_clean.csv"
-OUT_PATH = "/home/claude/eventhub-trend-analysis/data/eventhub_events_extended.csv"
+PROJECT_ROOT = Path(__file__).resolve().parent.parent
+REAL_EVENTS_PATH = PROJECT_ROOT / "data" / "eventhub_events_clean.csv"
+OUT_PATH = PROJECT_ROOT / "data" / "eventhub_events_extended.csv"
 
 BACKFILL_START = pd.Timestamp("2025-08-21")
 BACKFILL_END = pd.Timestamp("2026-04-30")

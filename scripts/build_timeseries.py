@@ -15,12 +15,14 @@ seed_events.json (EventHub 플랫폼의 할인 이벤트 160건, 레코드 단�
 """
 import json
 import re
+from pathlib import Path
 import pandas as pd
 import numpy as np
 
-RAW_PATH = "/home/claude/eventhub-trend-analysis/data/eventhub_seed_events_raw.json"
-OUT_EVENTS_CSV = "/home/claude/eventhub-trend-analysis/data/eventhub_events_clean.csv"
-OUT_DAILY_CSV = "/home/claude/eventhub-trend-analysis/data/eventhub_daily_timeseries.csv"
+PROJECT_ROOT = Path(__file__).resolve().parent.parent
+RAW_PATH = PROJECT_ROOT / "data" / "eventhub_seed_events_raw.json"
+OUT_EVENTS_CSV = PROJECT_ROOT / "data" / "eventhub_events_clean.csv"
+OUT_DAILY_CSV = PROJECT_ROOT / "data" / "eventhub_daily_timeseries.csv"
 
 CATEGORY_KO = {
     "fashion": "패션", "beauty": "뷰티", "food": "푸드", "tech": "테크",

@@ -1,6 +1,9 @@
 # -*- coding: utf-8 -*-
 """analysis.ipynb 를 프로그래밍적으로 조립한다 (nbformat)."""
 import nbformat as nbf
+from pathlib import Path
+
+PROJECT_ROOT = Path(__file__).resolve().parent.parent
 
 nb = nbf.v4.new_notebook()
 cells = []
@@ -391,5 +394,5 @@ md("""### 11-4. 정직한 한계
 """)
 
 nb["cells"] = cells
-nbf.write(nb, "/home/claude/eventhub-trend-analysis/analysis.ipynb")
+nbf.write(nb, str(PROJECT_ROOT / "analysis.ipynb"))
 print("notebook written:", len(cells), "cells")

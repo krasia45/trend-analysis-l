@@ -13,6 +13,7 @@ import matplotlib
 matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 import matplotlib.font_manager as fm
+from pathlib import Path
 
 for f in fm.fontManager.ttflist:
     if "NanumGothic" in f.name:
@@ -21,7 +22,7 @@ for f in fm.fontManager.ttflist:
 plt.rcParams["axes.unicode_minus"] = False
 plt.rcParams["figure.dpi"] = 130
 
-BASE = "/home/claude/eventhub-trend-analysis/"
+BASE = str(Path(__file__).resolve().parent.parent) + "/"
 IMG = BASE + "images/extended/"
 import os
 os.makedirs(IMG, exist_ok=True)

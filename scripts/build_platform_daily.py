@@ -9,8 +9,9 @@
 """
 import numpy as np
 import pandas as pd
+from pathlib import Path
 
-BASE = "/home/claude/eventhub-trend-analysis/data/"
+BASE = str(Path(__file__).resolve().parent.parent / "data") + "/"
 
 catalog = pd.read_csv(BASE + "eventhub_daily_timeseries.csv", parse_dates=["date"])
 engagement = pd.read_csv(BASE + "eventhub_event_daily_engagement.csv", parse_dates=["date"])

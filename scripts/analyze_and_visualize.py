@@ -8,6 +8,7 @@ import matplotlib
 matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 import matplotlib.font_manager as fm
+from pathlib import Path
 from statsmodels.tsa.seasonal import seasonal_decompose
 
 # ---- 한글 폰트 설정 ----
@@ -20,7 +21,7 @@ else:
 plt.rcParams["axes.unicode_minus"] = False
 plt.rcParams["figure.dpi"] = 130
 
-BASE = "/home/claude/eventhub-trend-analysis/"
+BASE = str(Path(__file__).resolve().parent.parent) + "/"
 IMG = BASE + "images/"
 
 ORANGE = "#FF6F00"  # EventHub 브랜드 컬러

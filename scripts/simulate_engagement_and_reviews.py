@@ -23,12 +23,14 @@ EventHub 서비스는 2026년 8월 현재 정식 오픈 전(가동 준비 중) �
 """
 import numpy as np
 import pandas as pd
+from pathlib import Path
 
 RNG = np.random.default_rng(42)  # 재현성을 위한 고정 시드
 
-EVENTS_PATH = "/home/claude/eventhub-trend-analysis/data/eventhub_events_clean.csv"
-OUT_EVENT_DAILY = "/home/claude/eventhub-trend-analysis/data/eventhub_event_daily_engagement.csv"
-OUT_REVIEWS = "/home/claude/eventhub-trend-analysis/data/eventhub_reviews_simulated.csv"
+PROJECT_ROOT = Path(__file__).resolve().parent.parent
+EVENTS_PATH = PROJECT_ROOT / "data" / "eventhub_events_clean.csv"
+OUT_EVENT_DAILY = PROJECT_ROOT / "data" / "eventhub_event_daily_engagement.csv"
+OUT_REVIEWS = PROJECT_ROOT / "data" / "eventhub_reviews_simulated.csv"
 
 # ---- 가정 1: 카테고리 기본 관심도 가중치 ----
 CATEGORY_WEIGHT = {

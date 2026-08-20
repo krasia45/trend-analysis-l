@@ -14,13 +14,15 @@ simulate_reviews, novelty_decay, discount_boost 등)를 그대로 import 해서 
   data/eventhub_platform_daily_extended.csv  ★ 확장 시나리오 최종 데이터셋 (365일)
 """
 import sys
+from pathlib import Path
 import numpy as np
 import pandas as pd
 
-sys.path.insert(0, "/home/claude/eventhub-trend-analysis/scripts")
+PROJECT_ROOT = Path(__file__).resolve().parent.parent
+sys.path.insert(0, str(PROJECT_ROOT / "scripts"))
 from simulate_engagement_and_reviews import simulate_event_daily_views, simulate_reviews  # noqa: E402
 
-BASE = "/home/claude/eventhub-trend-analysis/data/"
+BASE = str(PROJECT_ROOT / "data") + "/"
 CATEGORY_KO = {
     "fashion": "패션", "beauty": "뷰티", "food": "푸드", "tech": "테크",
     "delivery": "딜리버리", "stay": "스테이", "living": "리빙", "popup": "팝업",

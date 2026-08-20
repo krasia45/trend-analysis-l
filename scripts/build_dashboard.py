@@ -22,11 +22,12 @@ scripts/fetch_real_data_from_supabase.py 로 실측 데이터를 받으면,
 import argparse
 import json
 from datetime import datetime, timezone
+from pathlib import Path
 
 import numpy as np
 import pandas as pd
 
-BASE = "/home/claude/eventhub-trend-analysis/"
+BASE = str(Path(__file__).resolve().parent.parent) + "/"
 
 CAT_KO = {"food": "푸드", "popup": "팝업", "beauty": "뷰티", "fashion": "패션",
           "delivery": "딜리버리", "living": "리빙", "tech": "테크", "stay": "스테이"}

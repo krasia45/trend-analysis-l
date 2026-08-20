@@ -1,0 +1,389 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>EventHub 관심도 인텔리전스</title>
+<script>
+/* Chart.js v4.4.4 (로컬 vendoring — 외부 네트워크 의존성 없음, scripts/build_dashboard.py가 삽입) */
+__CHARTJS_VENDORED__
+</script>
+<style>
+  :root{
+    --orange:#FF6F00;
+    --orange-deep:#C24E00;
+    --ink:#1C2530;
+    --cream:#FBF7F1;
+    --card:#FFFFFF;
+    --line:#E9E2D6;
+    --teal:#2A8A7F;
+    --coral:#E15B3E;
+    --muted:#8A8578;
+    --radius:14px;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{
+    background:var(--cream);
+    color:var(--ink);
+    font-family:-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Malgun Gothic","Segoe UI",sans-serif;
+    letter-spacing:-0.01em;
+  }
+  .wrap{max-width:1180px;margin:0 auto;padding:28px 20px 80px;}
+
+  /* ---- header ---- */
+  header{display:flex;align-items:flex-end;justify-content:space-between;gap:16px;
+    padding-bottom:22px;border-bottom:2px solid var(--ink);margin-bottom:26px;flex-wrap:wrap;}
+  .brand{display:flex;align-items:center;gap:10px;}
+  .brand-mark{width:34px;height:34px;border-radius:9px;background:var(--orange);
+    display:flex;align-items:center;justify-content:center;color:white;font-weight:800;font-size:17px;}
+  .brand-name{font-size:20px;font-weight:800;letter-spacing:-0.02em;}
+  .brand-sub{font-size:12.5px;color:var(--muted);margin-top:2px;}
+  .badge{font-size:11px;font-weight:700;background:var(--ink);color:white;border-radius:20px;
+    padding:5px 12px;letter-spacing:0.02em;}
+
+  h1.title{font-size:26px;font-weight:800;margin:0 0 6px;letter-spacing:-0.02em;}
+  p.desc{font-size:13.5px;color:var(--muted);max-width:640px;line-height:1.6;margin:0;}
+
+  /* ---- kpi ---- */
+  .kpi-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin:26px 0;}
+  .kpi{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:18px 18px;}
+  .kpi-label{font-size:12px;color:var(--muted);font-weight:600;}
+  .kpi-value{font-size:26px;font-weight:800;margin-top:6px;letter-spacing:-0.02em;}
+  .kpi-value.orange{color:var(--orange-deep);}
+  .kpi-note{font-size:11.5px;color:var(--muted);margin-top:4px;}
+
+  /* ---- filters ---- */
+  .filter-row{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin-bottom:18px;}
+  .filter-group{display:flex;gap:6px;background:var(--card);border:1px solid var(--line);
+    border-radius:10px;padding:4px;}
+  .filter-btn{border:none;background:transparent;padding:7px 13px;border-radius:8px;font-size:12.5px;
+    font-weight:600;cursor:pointer;color:var(--ink);opacity:0.55;transition:all .15s;}
+  .filter-btn.active{background:var(--orange);color:white;opacity:1;}
+  .filter-btn:hover{opacity:1;}
+  .chip-row{display:flex;gap:7px;flex-wrap:wrap;}
+  .chip{border:1px solid var(--line);background:var(--card);padding:6px 12px;border-radius:20px;
+    font-size:12px;font-weight:600;cursor:pointer;color:var(--ink);opacity:0.5;transition:all .15s;}
+  .chip.active{opacity:1;border-color:var(--orange);background:#FFF2E2;color:var(--orange-deep);}
+
+  /* ---- layout ---- */
+  .grid-2{display:grid;grid-template-columns:1.55fr 1fr;gap:16px;margin-bottom:16px;}
+  .grid-3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px;margin-bottom:16px;}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:20px;}
+  .card h3{font-size:14px;margin:0 0 3px;font-weight:800;}
+  .card .sub{font-size:11.5px;color:var(--muted);margin-bottom:14px;}
+  canvas{max-width:100%;}
+
+  /* ---- ranking ticker (signature element) ---- */
+  .rank-list{list-style:none;margin:0;padding:0;}
+  .rank-item{display:flex;align-items:center;gap:10px;padding:9px 0;border-bottom:1px dashed var(--line);}
+  .rank-item:last-child{border-bottom:none;}
+  .rank-num{width:22px;height:22px;border-radius:6px;background:var(--ink);color:white;font-size:11px;
+    font-weight:800;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+  .rank-item:nth-child(1) .rank-num{background:var(--orange);}
+  .rank-cat{font-weight:700;font-size:13px;flex:1;}
+  .rank-change{font-size:12px;font-weight:800;padding:2px 8px;border-radius:6px;}
+  .rank-change.up{color:var(--teal);background:#E4F4F1;}
+  .rank-change.down{color:var(--coral);background:#FCEAE5;}
+
+  /* ---- insights ---- */
+  .insight-card{border-left:3px solid var(--orange);padding:4px 0 4px 14px;margin-bottom:14px;}
+  .insight-card:last-child{margin-bottom:0;}
+  .insight-card b{font-size:13px;}
+  .insight-card p{font-size:12.5px;color:#4b4536;margin:4px 0 0;line-height:1.55;}
+
+  footer{margin-top:30px;padding-top:18px;border-top:1px solid var(--line);
+    font-size:11.5px;color:var(--muted);line-height:1.7;}
+  footer a{color:var(--orange-deep);}
+
+  @media(max-width:860px){
+    .kpi-grid{grid-template-columns:repeat(2,1fr);}
+    .grid-2,.grid-3{grid-template-columns:1fr;}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <div class="brand">
+      <div class="brand-mark">E</div>
+      <div>
+        <div class="brand-name">EventHub <span style="font-weight:500;color:var(--muted);font-size:14px;">for Business</span></div>
+        <div class="brand-sub">모든 할인 이벤트, 하나의 앱 — 관심도 인텔리전스</div>
+      </div>
+    </div>
+    <div class="badge" id="dataModeBadge">SIMULATION PREVIEW · 오픈 전</div>
+  </header>
+
+  <h1 class="title">지금, 사람들은 무엇에 관심이 있을까요?</h1>
+  <p class="desc" id="descText">
+    실제 이벤트 카탈로그(160건)를 기반으로, 서비스가 운영 중이라는 가정 하에 조회수·좋아요·리뷰를
+    통계적으로 시뮬레이션한 프리뷰입니다. 기간과 카테고리를 바꿔가며 관심도 흐름을 탐색해보세요.
+  </p>
+
+  <div class="filter-row" style="margin-top:22px;">
+    <div class="filter-group" id="rangeFilter">
+      <button class="filter-btn active" data-range="all">전체 112일</button>
+      <button class="filter-btn" data-range="56">최근 8주</button>
+      <button class="filter-btn" data-range="28">최근 4주</button>
+      <button class="filter-btn" data-range="14">최근 2주</button>
+    </div>
+  </div>
+  <div class="chip-row" id="catFilter" style="margin-bottom:22px;"></div>
+
+  <div class="kpi-grid" id="kpiGrid"></div>
+
+  <div class="grid-2">
+    <div class="card">
+      <h3>일별 조회수 추이</h3>
+      <div class="sub">막대: 일별 조회수 · 선: 7일 이동평균</div>
+      <canvas id="viewsChart" height="230"></canvas>
+    </div>
+    <div class="card">
+      <h3>지금 뜨는 카테고리</h3>
+      <div class="sub">선택 구간 vs 직전 동일 길이 구간 대비 증감률</div>
+      <ul class="rank-list" id="rankList"></ul>
+    </div>
+  </div>
+
+  <div class="grid-3">
+    <div class="card">
+      <h3>요일별 평균 조회수</h3>
+      <div class="sub">주말 성수기 패턴</div>
+      <canvas id="weekdayChart" height="200"></canvas>
+    </div>
+    <div class="card">
+      <h3>카테고리별 조회수 점유율</h3>
+      <div class="sub">선택 구간 누적 기준</div>
+      <canvas id="catShareChart" height="200"></canvas>
+    </div>
+    <div class="card">
+      <h3>카테고리별 평균 별점</h3>
+      <div class="sub">리뷰 데이터 기준</div>
+      <canvas id="ratingChart" height="200"></canvas>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>기업에게 보내는 인사이트</h3>
+    <div class="sub">데이터에서 관찰한 사실과 그에 따른 액션 제안</div>
+    <div class="insight-card">
+      <b>🟠 주말이 골든타임입니다</b>
+      <p>주말 평균 조회수가 평일 대비 1.37배 높습니다. 신규 프로모션 노출을 금~토요일 오전에 집중하면 도달률을 높일 수 있습니다.</p>
+    </div>
+    <div class="insight-card">
+      <b>🟠 이벤트는 10일이 골든윈도우입니다</b>
+      <p>이벤트 시작 후 10일이면 관심도가 절반 이하(46.1%)로 감쇠합니다. 5~7일차 리마인드 알림으로 감쇠 속도를 늦춰보세요.</p>
+    </div>
+    <div class="insight-card">
+      <b>🟠 인기와 만족은 다른 지표입니다</b>
+      <p>조회수와 평점의 상관계수는 -0.10으로 사실상 무관합니다. 랭킹 노출 시 조회수 단일 기준보다 평점을 함께 반영하는 것을 제안합니다.</p>
+    </div>
+  </div>
+
+  <footer id="footerText">
+    ⚠️ 본 대시보드의 조회수·좋아요·리뷰는 EventHub 실제 이벤트 카탈로그(브랜드·할인율·기간)를 입력으로 한
+    <b>통계적 시뮬레이션</b>이며 실측 데이터가 아닙니다. 생성 로직과 가정은 리포트(REPORT.md) §3, §8을 참고하세요.
+    데이터 출처: <a href="https://github.com/krasia45/eventhub" target="_blank">github.com/krasia45/eventhub</a> (seed_events.json, 160건)
+  </footer>
+
+</div>
+
+<script>
+const DATA = __DASHBOARD_DATA_JSON__;
+const META = __DASHBOARD_META_JSON__;  // {mode: "simulated"|"real", generatedAt, sourceNote}
+
+if (META && META.mode === "real") {
+  document.getElementById("dataModeBadge").textContent = "LIVE DATA · 실측";
+  document.getElementById("dataModeBadge").style.background = "#2A8A7F";
+  document.getElementById("footerText").innerHTML =
+    "✅ 이 대시보드는 EventHub 실제 운영 데이터(Supabase)를 기반으로 생성되었습니다. " +
+    "생성 시각: " + (META.generatedAt || "-") + ". 데이터 출처: " +
+    "<a href='https://github.com/krasia45/eventhub' target='_blank'>github.com/krasia45/eventhub</a>";
+}
+
+const COLORS = {orange:"#FF6F00", ink:"#1C2530", teal:"#2A8A7F", coral:"#E15B3E", muted:"#8A8578",
+  palette:["#FF6F00","#2C3E50","#F4A261","#457B9D","#E76F51","#2A9D8F","#8D5B4C","#6D6875"]};
+
+let currentRange = "all";
+let activeCats = new Set(DATA.categories);
+
+function getFilteredDaily(){
+  const d = DATA.daily;
+  if(currentRange === "all") return d;
+  const n = parseInt(currentRange);
+  return d.slice(-n);
+}
+function getPrevWindow(){
+  const d = DATA.daily;
+  if(currentRange === "all") return [];
+  const n = parseInt(currentRange);
+  const start = Math.max(0, d.length - 2*n);
+  return d.slice(start, d.length - n);
+}
+
+// ---------------- Category chips ----------------
+const chipRow = document.getElementById("catFilter");
+DATA.categories.forEach(c=>{
+  const el = document.createElement("div");
+  el.className = "chip active";
+  el.textContent = c;
+  el.onclick = () => {
+    if(activeCats.has(c)){ activeCats.delete(c); el.classList.remove("active"); }
+    else { activeCats.add(c); el.classList.add("active"); }
+    renderAll();
+  };
+  chipRow.appendChild(el);
+});
+
+document.querySelectorAll("#rangeFilter .filter-btn").forEach(btn=>{
+  btn.onclick = () => {
+    document.querySelectorAll("#rangeFilter .filter-btn").forEach(b=>b.classList.remove("active"));
+    btn.classList.add("active");
+    currentRange = btn.dataset.range;
+    renderAll();
+  };
+});
+
+let charts = {};
+function destroyChart(key){ if(charts[key]){ charts[key].destroy(); } }
+
+function renderKpi(rows){
+  const totalViews = rows.reduce((s,r)=>s+r.views,0);
+  const totalLikes = rows.reduce((s,r)=>s+r.likes,0);
+  const totalReviews = rows.reduce((s,r)=>s+r.reviews,0);
+  const ratedRows = rows.filter(r=>r.rating!==null);
+  const avgRating = ratedRows.length ? (ratedRows.reduce((s,r)=>s+r.rating*r.reviews,0)/ratedRows.reduce((s,r)=>s+r.reviews,0)) : null;
+
+  const kpis = [
+    {label:"총 조회수", value: totalViews.toLocaleString(), note: rows.length+"일 합계", cls:"orange"},
+    {label:"총 좋아요", value: totalLikes.toLocaleString(), note: totalViews? "조회 대비 "+(totalLikes/totalViews*100).toFixed(1)+"%" : "-"},
+    {label:"리뷰 수", value: totalReviews.toLocaleString(), note: META.mode==="real" ? "실측 리뷰" : "시뮬레이션 리뷰"},
+    {label:"평균 별점", value: avgRating? avgRating.toFixed(2)+" / 5" : "-", note: "리뷰 건수 가중평균"},
+  ];
+  const grid = document.getElementById("kpiGrid");
+  grid.innerHTML = "";
+  kpis.forEach(k=>{
+    const el = document.createElement("div");
+    el.className = "kpi";
+    el.innerHTML = `<div class="kpi-label">${k.label}</div><div class="kpi-value ${k.cls||''}">${k.value}</div><div class="kpi-note">${k.note}</div>`;
+    grid.appendChild(el);
+  });
+}
+
+function catViewsForRows(rows){
+  const sums = {};
+  DATA.categories.forEach(c=>sums[c]=0);
+  rows.forEach(r=>{ DATA.categories.forEach(c=>{ sums[c]+= (r[c]||0); }); });
+  return sums;
+}
+
+function renderViewsChart(rows){
+  destroyChart("views");
+  const ctx = document.getElementById("viewsChart");
+  charts.views = new Chart(ctx, {
+    data: {
+      labels: rows.map(r=>r.date.slice(5)),
+      datasets: [
+        {type:"bar", label:"일별 조회수", data: rows.map(r=>r.views), backgroundColor:"#FFD9A8", borderRadius:3, order:2},
+        {type:"line", label:"7일 이동평균", data: rows.map(r=>r.ma7), borderColor: COLORS.orange, borderWidth:2.5,
+          pointRadius:0, tension:0.25, order:1},
+      ]
+    },
+    options: {
+      responsive:true,
+      interaction:{mode:"index", intersect:false},
+      scales:{ x:{ticks:{maxTicksLimit:10, font:{size:10}}, grid:{display:false}}, y:{grid:{color:"#F0EAE0"}} },
+      plugins:{legend:{position:"top", labels:{boxWidth:12, font:{size:11}}}}
+    }
+  });
+}
+
+function renderWeekdayChart(rows){
+  destroyChart("weekday");
+  const order = ["월","화","수","목","금","토","일"];
+  const sums = {}, counts = {};
+  order.forEach(w=>{sums[w]=0;counts[w]=0;});
+  rows.forEach(r=>{ sums[r.weekday]+=r.views; counts[r.weekday]+=1; });
+  const avgs = order.map(w=> counts[w]? sums[w]/counts[w] : 0);
+  const ctx = document.getElementById("weekdayChart");
+  charts.weekday = new Chart(ctx, {
+    type:"bar",
+    data:{labels:order, datasets:[{data:avgs, backgroundColor: order.map(w=> (w==="토"||w==="일") ? COLORS.orange : "#CFCABE"), borderRadius:4}]},
+    options:{plugins:{legend:{display:false}}, scales:{y:{grid:{color:"#F0EAE0"}}, x:{grid:{display:false}}}}
+  });
+}
+
+function renderCatShareChart(rows){
+  destroyChart("catShare");
+  const sums = catViewsForRows(rows);
+  const entries = Object.entries(sums).filter(([c])=>activeCats.has(c)).sort((a,b)=>b[1]-a[1]);
+  const ctx = document.getElementById("catShareChart");
+  charts.catShare = new Chart(ctx, {
+    type:"doughnut",
+    data:{labels: entries.map(e=>e[0]), datasets:[{data: entries.map(e=>e[1]), backgroundColor: COLORS.palette}]},
+    options:{plugins:{legend:{position:"bottom", labels:{boxWidth:10,font:{size:10}}}}}
+  });
+}
+
+function renderRatingChart(){
+  destroyChart("rating");
+  const data = DATA.ratingByCategory.filter(d=>activeCats.has(d.category)).sort((a,b)=>b.rating-a.rating);
+  const ctx = document.getElementById("ratingChart");
+  charts.rating = new Chart(ctx, {
+    type:"bar",
+    data:{labels:data.map(d=>d.category), datasets:[{data:data.map(d=>d.rating), backgroundColor: COLORS.palette, borderRadius:4}]},
+    options:{indexAxis:"y", plugins:{legend:{display:false}}, scales:{x:{min:0,max:5, grid:{color:"#F0EAE0"}}, y:{grid:{display:false}}}}
+  });
+}
+
+function renderRanking(rows){
+  const curSums = catViewsForRows(rows);
+  const prevRows = getPrevWindow();
+  let changes;
+  if(prevRows.length){
+    const prevSums = catViewsForRows(prevRows);
+    changes = DATA.categories.map(c=>{
+      const cur = curSums[c], prev = prevSums[c];
+      const pct = prev>0 ? ((cur-prev)/prev*100) : (cur>0? 100:0);
+      return {cat:c, pct};
+    });
+  } else {
+    const all = DATA.daily;
+    const half = Math.floor(all.length/2) || 1;
+    const lastH = all.slice(-half), prevH = all.slice(-2*half,-half);
+    const curS = catViewsForRows(lastH), prevS = catViewsForRows(prevH);
+    changes = DATA.categories.map(c=>{
+      const cur = curS[c], prev = prevS[c];
+      const pct = prev>0 ? ((cur-prev)/prev*100) : (cur>0?100:0);
+      return {cat:c, pct};
+    });
+  }
+  changes = changes.filter(d=>activeCats.has(d.cat)).sort((a,b)=>b.pct-a.pct);
+  const list = document.getElementById("rankList");
+  list.innerHTML = "";
+  changes.forEach((d,i)=>{
+    const li = document.createElement("li");
+    li.className = "rank-item";
+    const sign = d.pct>=0 ? "up" : "down";
+    li.innerHTML = `<div class="rank-num">${i+1}</div><div class="rank-cat">${d.cat}</div>
+      <div class="rank-change ${sign}">${d.pct>=0?"▲":"▼"} ${Math.abs(d.pct).toFixed(0)}%</div>`;
+    list.appendChild(li);
+  });
+}
+
+function renderAll(){
+  const rows = getFilteredDaily();
+  renderKpi(rows);
+  renderViewsChart(rows);
+  renderWeekdayChart(rows);
+  renderCatShareChart(rows);
+  renderRatingChart();
+  renderRanking(rows);
+}
+
+renderAll();
+</script>
+</body>
+</html>

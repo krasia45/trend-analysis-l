@@ -215,11 +215,33 @@ EventHub의 핵심 인사이트 상품(실시간 인기 랭킹)의 데이터 기
 ## 부록 A. [보너스] 서비스화 — 인터랙티브 대시보드
 
 분석 결과를 브랜드 파트너가 기간·카테고리를 바꿔가며 탐색할 수 있는 웹 대시보드
-(`dashboard.html`)로 구현했다. 단일 HTML 파일에 데이터가 내장되어 있어 별도 서버 없이
-바로 열리며, GitHub Pages 등에 정적 호스팅하면 배포 URL로도 제출 가능하다.
-자세한 실행 방법은 `README.md`를 참고.
+(`dashboard.html`)로 구현했다. Chart.js 라이브러리까지 파일 안에 내장(vendored)해
+**인터넷 연결 없이도** 더블클릭만으로 실행되며, GitHub Pages 등에 정적 호스팅하면
+배포 URL로도 제출 가능하다. 실제 헤드리스 브라우저(Chromium)로 렌더링해 3가지
+필터 시나리오(전체 기간 / 최근 4주 / 카테고리 제외)를 스크린샷으로 검증했다
+(`docs/DASHBOARD_SCREENSHOTS.md`). 대시보드는 `templates/dashboard_template.html`
++ `scripts/build_dashboard.py` 조합으로 재생성되며, 입력 CSV만 바꾸면 실측 데이터로도
+그대로 재사용된다(부록 C 참고).
 
 ## 부록 B. [보너스] 시계열 심화 — 분해 & 예측
 
 §5-7(시계열 분해), §5-8(베이스라인 예측)에서 수행. 코드는 `scripts/analyze_and_visualize.py`
 및 `analysis.ipynb` §6~7 참고.
+
+## 부록 C. 실서비스 전환 — "실제로 EventHub가 운영된다면"에 대한 답
+
+이 리포트 전체는 **시뮬레이션**이라는 한계를 가진다. 이를 실제로 해소하기 위해
+다음 두 가지를 추가로 준비했다 (자세한 내용은 README.md "실서비스 전환 가이드" 참고):
+
+1. **`sql/production_schema_additions.sql`**: 실제 EventHub Supabase 스키마
+   (`event_stats`는 누적 카운터만 존재, 일별 시계열 불가)에 일별 스냅샷 테이블
+   (`event_stats_daily`)과 리뷰 별점 컬럼(`event_visits.rating`)을 추가하는
+   additive migration. 실제 스키마를 조사해 "지금 이 분석을 실측 데이터로 재현하려면
+   무엇이 빠져 있는가"를 정확히 짚어낸 결과물이다.
+2. **`scripts/fetch_real_data_from_supabase.py`**: 위 마이그레이션 적용 후 실제
+   Supabase에서 데이터를 읽어 본 리포트와 **완전히 동일한 컬럼 스키마**로 재조립하는
+   어댑터. `--self-test` 로 네트워크 없이 reshape 로직 정확성을 검증할 수 있다
+   (합성 fixture로 일별 신규 조회수·리뷰 집계 로직 assertion 통과 확인 완료).
+
+즉 이 분석은 "시뮬레이션으로 끝"이 아니라, **실측 데이터가 들어왔을 때 그대로 재사용
+가능한 파이프라인**까지 설계되어 있다.

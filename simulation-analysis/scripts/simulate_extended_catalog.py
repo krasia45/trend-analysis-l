@@ -145,7 +145,7 @@ def main():
     print(f"\n[백필 구간(2025-08-21~2026-04-30) 공백일]: {len(backfill_gaps)}건 "
           f"({'✅ 완전 해소 — 1년 연속 데이터 확보' if not backfill_gaps else backfill_gaps[:5]})")
     print(f"[실제 구간(2026-05-01~) 공백일]: {len(real_gaps)}건 "
-          f"({'없음' if not real_gaps else str([d.date() for d in real_gaps]) + ' — 이건 실제 카탈로그의 진짜 공급 공백이라 의도적으로 보존함 (REPORT.md 인사이트 4)'})")
+          f"({'없음' if not real_gaps else str([d.date() for d in real_gaps]) + ' — 이건 실제 카탈로그의 진짜 공급 공백이라 의도적으로 보존함 (REPORT.md §4 참고)'})")
 
 
 if __name__ == "__main__":

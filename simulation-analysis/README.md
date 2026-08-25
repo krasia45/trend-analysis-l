@@ -390,7 +390,7 @@ python3 scripts/analyze_extended_scenario.py
 | 데이터 기본 정보/결측치/이상치 처리 | ✅ REPORT.md §4 |
 | 시계열 분석 기법 2개 이상 | ✅ 이동평균·요일별 집계·구간비교·경과일 분석 (4개) |
 | 시각화 2개 이상(권장 3개 이상) | ✅ 8종 |
-| 인사이트 3개 이상(관찰 근거 포함) | ✅ 5개 |
+| 인사이트 3개 이상(관찰 근거 포함) | ✅ 3개 |
 | REPORT.md (주제/질문/데이터/시각화/인사이트/결론) | ✅ |
 | Python 코드 (노트북 또는 스크립트) | ✅ `analysis.ipynb` + `scripts/*.py` 8개 |
 | GitHub 저장소 | ✅ |
@@ -409,7 +409,7 @@ python3 scripts/analyze_extended_scenario.py
   실측은 아니다 — 절대 수치가 아니라 패턴을 참고 자료로 해석해야 한다.
 - `fetch_real_data_from_supabase.py`는 reshape 로직을 self-test로 검증했지만, 실제
   Supabase 인스턴스로의 라이브 연결은 별도 검증이 필요하다.
-- REPORT.md §6 인사이트 4("6일간 이벤트 공급 공백")는 시뮬레이션이 아니라 원본
+- REPORT.md §4에서 확인한 "6일간 이벤트 공급 공백"은 시뮬레이션이 아니라 원본
   카탈로그 자체에서 나온 사실이다 — 서비스 오픈 전 검토할 가치가 있는 실측 기반
   발견이다.
 

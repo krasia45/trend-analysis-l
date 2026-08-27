@@ -225,7 +225,7 @@ trend-analysis-l/
 싶으시면 아래를 순서대로 따라 하세요. 처음 해보셔도 괜찮도록 각 단계에서 어떤
 화면이 나와야 정상인지도 같이 적어뒀습니다.
 
-### 6-1. 준비물 확인
+### 7-1. 준비물 확인
 
 - **Python 3.10 이상**이 설치되어 있어야 합니다. 터미널에 아래를 쳐서 확인하세요:
   ```bash
@@ -234,11 +234,11 @@ trend-analysis-l/
   `Python 3.10.x` 이상이 나오면 OK입니다. 없다면
   [python.org/downloads](https://www.python.org/downloads/)에서 설치하세요.
 
-### 6-2. 터미널 열기
+### 7-2. 터미널 열기
 - **Mac**: Spotlight(⌘+Space)에서 "터미널" 검색해서 실행
 - **Windows**: 시작 메뉴에서 "PowerShell" 검색해서 실행
 
-### 6-3. 저장소 받기
+### 7-3. 저장소 받기
 ```bash
 git clone https://github.com/krasia45/trend-analysis-l.git
 cd trend-analysis-l
@@ -246,7 +246,7 @@ cd trend-analysis-l
 `git`이 없다는 에러가 나면 [git-scm.com](https://git-scm.com/downloads)에서 먼저
 설치하세요.
 
-### 6-4. 네이버 성수 실측 분석 실행해보기
+### 7-4. 네이버 성수 실측 분석 실행해보기
 
 ```bash
 cd real-data-analysis
@@ -271,7 +271,7 @@ python3 scripts/analyze_and_visualize.py
 
 이제 `REPORT.md`를 열어서 그 그래프들에 대한 설명과 인사이트를 읽어보시면 됩니다.
 
-### 6-5. 노트북으로 한 번에 보고 싶다면
+### 7-5. 노트북으로 한 번에 보고 싶다면
 ```bash
 jupyter notebook analysis.ipynb
 ```
@@ -279,7 +279,7 @@ jupyter notebook analysis.ipynb
 있습니다. 이미 실행된 결과가 저장되어 있어서, 그냥 열기만 해도 그래프가 바로
 보입니다. (직접 재실행하고 싶다면 상단 메뉴 **Kernel → Restart & Run All**)
 
-### 6-6. 이벤트허브 가상 분석도 실행해보기
+### 7-6. 이벤트허브 가상 분석도 실행해보기
 
 이벤트허브 가상 분석은 데이터를 만드는 과정 자체가 여러 단계로 나뉘어 있어서, **반드시
 아래 순서대로** 실행해야 합니다 (뒤 단계가 앞 단계에서 만든 파일을 사용하기 때문).
@@ -304,13 +304,13 @@ python3 scripts/build_extended_scenario.py
 python3 scripts/analyze_extended_scenario.py
 ```
 
-### 6-7. 자주 만나는 에러
+### 7-7. 자주 만나는 에러
 
 | 에러 메시지 | 원인 | 해결 방법 |
 |---|---|---|
-| `command not found: python3` | 파이썬 미설치 | 6-1로 돌아가 파이썬 설치 |
+| `command not found: python3` | 파이썬 미설치 | 7-1로 돌아가 파이썬 설치 |
 | `No module named 'pandas'` (등) | 가상환경 활성화 안 됨 | `source .venv/bin/activate`를 다시 실행 (터미널 맨 앞에 `(.venv)`가 보여야 함) |
-| `FileNotFoundError: ...csv` | 이전 단계를 건너뜀 | 6-6의 스크립트를 ①→②→③→④ 순서대로 전부 실행했는지 확인 |
+| `FileNotFoundError: ...csv` | 이전 단계를 건너뜀 | 7-6의 스크립트를 ①→②→③→④ 순서대로 전부 실행했는지 확인 |
 | 한글 그래프가 네모(□)로 깨져 보임 | 한글 폰트 미설치 (리눅스) | `sudo apt-get install -y fonts-nanum` 실행 후 재시도 |
 
 ---
@@ -353,8 +353,8 @@ python3 scripts/analyze_extended_scenario.py
 | AI 사용 로그 | ✅ | ✅ |
 | **[보너스] 서비스화(대시보드)** | ✅ | ✅ |
 | **[보너스] 시계열 심화(분해/예측)** | ✅ | ✅ |
-| (추가) 실서비스 전환 경로 설계 | ✅ (`simulation-analysis/README.md` §5, 시뮬레이션→실측 전환 SQL/어댑터) | — (이미 실측이라 해당 없음) |
-| (추가) 두 분석 통합 대시보드 | ✅ 하나의 대시보드에서 탭으로 전환 가능 | |
+| (추가) 실서비스 전환 경로 설계 | ✅ (`simulation-analysis/README.md` §5, 실측 데이터로 갈아끼우는 절차 준비) | — (이미 실측이라 해당 없음) |
+| (추가) 두 분석 통합 대시보드 | ✅ 하나의 대시보드에서 탭으로 전환 가능 | ✅ 하나의 대시보드에서 탭으로 전환 가능 |
 
 세부 항목별 근거는 각 폴더의 REPORT.md에서 확인할 수 있습니다.
 
